@@ -39,12 +39,12 @@ a:hover {
 #posts .post {
   margin-bottom: 20px;
   text-decoration: none;
-  min-height: 160px;
+  min-height: 180px;
   display: block;
 }
 
 #posts .post-topix {
-  min-height: 250px;
+  min-height: 280px;
 }
 
 #posts .post:hover {
@@ -139,11 +139,18 @@ a:hover {
 }
 
 #post .eyecatch img {
+  width: 80%;
   max-width: 400px;
 }
 
 #post .content {
   margin-bottom: 50px;
+}
+
+#post .content img {
+  max-width: 90%;
+  box-shadow: 0 0 3px #ddd;
+  border-radius: 5px;
 }
 
 #post .content h1,
@@ -153,7 +160,7 @@ a:hover {
 #post .content h5,
 #post .content h6 {
   font-weight: 900;
-  background-color: #fafafa;
+  background-color: #eee;
   border-radius: 5px;
   margin: 50px 0 20px 0;
 }
@@ -228,6 +235,10 @@ a:hover {
 
 #site-sidebar section h3 {
   margin-top: 0;
+}
+
+.custom-partial {
+  margin: 10px 0 50px;
 }
 
 /* Helper */

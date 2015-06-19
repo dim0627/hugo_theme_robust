@@ -1,4 +1,7 @@
 <div class="col-md-12 col-sm-6 col-xs-12">
+  <div class="text-center custom-partial">
+    {{ partial "rectangle-header" . }}
+  </div>
   <section class="sidebar-bordered">
     <h3>Profile</h3>
     {{ if isset .Site.Params "GravatarHash" }}
@@ -43,4 +46,10 @@
     </div>
     {{ end }}
   </section>
+</div>
+
+<div class="col-md-12 col-sm-6 col-xs-12">
+  <div class="text-center custom-partial">
+    {{ partial "rectangle-footer" . }}
+  </div>
 </div>

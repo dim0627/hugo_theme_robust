@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-md-9">
     <div id="posts">
+      {{ partial "premium-header" . }}
       <div class="row">
         {{ range $index, $post := .Data.Pages }}
         {{ if eq .Type "post"}}
@@ -36,6 +37,13 @@
               <h3 class="title">{{ .Title }}</h3>
             </a>
           </article>
+        </div>
+        {{ end }}
+        {{ if eq $index 3 }}
+        <div class="col-md-12">
+          <div class="text-center custom-partial">
+            {{ partial "premium-body" . }}
+          </div>
         </div>
         {{ end }}
         {{ end }}

@@ -15,6 +15,7 @@
 #profile-description {
   font-size: 1.2rem;
   margin-bottom: 5px;
+  white-space: pre;
 }
 
 #profile-urls {
