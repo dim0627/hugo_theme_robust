@@ -1,0 +1,12 @@
+name = "Robust"
+license = "MIT"
+licenselink = "https://github.com/dim0627/hugo_theme_robust/blob/master/LICENSE.md"
+description = "'Robust' is two column theme for blogger."
+homepage = ""
+tags = ["blog"]
+features = ["blog"]
+
+[author]
+    name = "Daisuke Tsuji"
+    homepage = "http://yet.unresolved.xyz"
+

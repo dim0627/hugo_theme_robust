@@ -1,0 +1,241 @@
+/* Reset */
+body {
+  font-family: "PT Sans", 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-size: 16px;
+}
+
+a {
+  color: #34495e;
+  transition-duration: .3s;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #2ecc71;
+}
+
+/* Original */
+/** SiteHeader **/
+#site-header h1 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+#site-header h1 a {
+  text-decoration: none;
+}
+
+#site-header h1 a:hover {
+  text-decoration: none;
+}
+
+/** SiteBody **/
+#site-body {
+  margin-bottom: 40px;
+}
+
+/** #posts **/
+#posts .post {
+  margin-bottom: 20px;
+  text-decoration: none;
+  min-height: 160px;
+  display: block;
+}
+
+#posts .post-topix {
+  min-height: 250px;
+}
+
+#posts .post:hover {
+  text-decoration: none;
+}
+
+#posts .post .eyecatch {
+  min-height: 70px;
+  margin-bottom: 10px;
+}
+
+#posts .post .eyecatch img {
+  max-width: 50%;
+  max-height: 70px;
+  border-radius: 5px;
+}
+
+#posts .post .date {
+  position: relative;
+  padding: 5px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#posts .post:hover .date {
+  color: #333;
+}
+
+#posts .post .date:before {
+  position: absolute;
+  content: "";
+  display: block;
+  border-top: 1px solid #333;
+  width: 100%;
+  top: 12px;
+  left: 0;
+  z-index: -1;
+}
+
+#posts .post .date span {
+  background-color: #fff;
+  padding: 0 5px;
+}
+
+#posts .post .title {
+  font-size: 1.5rem;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+#posts .post-topix .title {
+  font-size: 2rem;
+}
+
+#posts .post .summary {
+  position: relative;
+  max-height: 80px;
+  overflow: hidden;
+  font-size: 1.2rem;
+}
+
+#posts .post .summary:before {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  bottom: 0;
+  background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 35%, rgba(255,255,255,1) 85%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(35%,rgba(255,255,255,0.5)), color-stop(85%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.5) 35%,rgba(255,255,255,1) 85%,rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.5) 35%,rgba(255,255,255,1) 85%,rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.5) 35%,rgba(255,255,255,1) 85%,rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0.5) 35%,rgba(255,255,255,1) 85%,rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+}
+
+/** SinglePost **/
+#post .date {
+  color: #333;
+}
+
+#post .title {
+  margin-top: 0;
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+#post .eyecatch {
+  margin-bottom: 50px;
+}
+
+#post .eyecatch img {
+  max-width: 400px;
+}
+
+#post .content {
+  margin-bottom: 50px;
+}
+
+#post .content h1,
+#post .content h2,
+#post .content h3,
+#post .content h4,
+#post .content h5,
+#post .content h6 {
+  font-weight: 900;
+  background-color: #fafafa;
+  border-radius: 5px;
+  margin: 50px 0 20px 0;
+}
+#post .content h1 {
+  font-size: 2.5rem;
+  padding: 13px;
+}
+
+#post .content h2 {
+  font-size: 2.3rem;
+  padding: 10px;
+}
+
+#post .content h3 {
+  font-size: 2rem;
+  padding: 8px;
+}
+
+#post .content pre {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+}
+
+/** PostFooter **/
+#post #share img {
+  max-width: 30px;
+  border-radius: 3px;
+}
+
+#post #related #tags {
+  margin-bottom: 10px;
+}
+
+#post #related #tags a {
+  background-color: #eee;
+  border-radius: 3px;
+  margin-right: 10px;
+  padding: 2px 4px;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+#post #related {
+  margin-bottom: 30px;
+}
+
+#post #related #related-posts {
+  list-style: none;
+  padding-left: 10px;
+}
+
+#post #pagination {
+  margin-bottom: 50px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 20px 0;
+}
+
+/** SiteFooter **/
+#site-footer {
+  background-color: #000;
+  color: #eee;
+  padding: 50px 0 70px 0;
+}
+
+/** SiteSidebar **/
+#site-sidebar section {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#site-sidebar section h3 {
+  margin-top: 0;
+}
+
+/* Helper */
+.font-logo {
+  font-family: 'Marcellus SC', serif;
+}
+
+.sidebar-bordered {
+  border: 1px solid #eee;
+  border-radius: 5px;
+}

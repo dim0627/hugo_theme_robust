@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ if eq .Url "/" }}
+    <!-- Index -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Site.BaseUrl }}">
+    <meta property="og:title" content="{{ .Site.Title }}">
+    {{ range first 1 .Data.Pages }}
+    <meta property="og:description" content="{{ .Summary }}">
+    {{ if isset .Params "eyecatch" }}
+    <meta property="og:image" content="{{ .Site.BaseUrl }}/images/{{ .Params.eyecatch }}">
+    {{ end }}
+    {{ end }}
+    {{ else if eq .Url "/post/" }}
+    <!-- Post -->
+    <meta property="og:title" content="All Entries | {{ .Site.Title }}">
+    <meta property="og:url" content="{{ .Site.BaseUrl }}">
+    {{ else if in .Url "/tags/" }}
+    <!-- Category -->
+    <meta property="og:title" content="{{ .Site.Title }}">
+    <meta property="og:url" content="{{ .Site.BaseUrl }}">
+    {{ else }}
+    <!-- Article -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:description" content="{{ .Summary }}">
+    {{ if isset .Params "eyecatch" }}
+    <meta property="og:image" content="{{ .Site.BaseUrl }}/images/{{ .Params.eyecatch }}">
+    {{ end }}
+    {{ end }}
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+
+    <title>
+      {{ if eq .Url "/" }}
+      {{ .Site.Title }}
+      {{ else if eq .Url "/post/" }}
+      All Entries | {{ .Site.Title }}
+      {{ else if in .Url "/tags/" }}
+      Tags | {{ .Site.Title }}
+      {{ else }}
+      {{ .Title }} | {{ .Site.Title }}
+      {{ end }}
+    </title>
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="{{ .Site.BaseUrl }}/assets/favicon.ico">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseUrl }}/index.xml">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Marcellus+SC' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/{{ .Site.Params.SyntaxHighlightTheme }}" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+  <body>
+
+    <header id="site-header">
+      <div class="container">
+        <h1 class="text-center">
+          <a href="{{ .Site.BaseUrl }}" class="font-logo">{{ .Site.Title }}</a>
+        </h1>
+      </div>
+    </header>
+
+    <main id="site-body">
+    <div class="container">
+
