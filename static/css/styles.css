@@ -59,7 +59,7 @@ a:hover {
 #posts .post .eyecatch img {
   max-width: 50%;
   max-height: 70px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 #posts .post .date {
@@ -141,6 +141,7 @@ a:hover {
 #post .eyecatch img {
   width: 80%;
   max-width: 400px;
+  border-radius: 5px;
 }
 
 #post .content {
@@ -149,8 +150,8 @@ a:hover {
 
 #post .content img {
   max-width: 90%;
-  box-shadow: 0 0 3px #ddd;
   border-radius: 5px;
+  border: 1px solid #eee;
 }
 
 #post .content h1,
