@@ -38,7 +38,7 @@
     <h3>Tags</h3>
     {{ if .Site.Params.ShowTagCloud }}
     <div id="tag-cloud" class="text-center">
-      {{ $baseurl := .Site.BaseUrl }}
+      {{ $baseurl := .Site.BaseURL }}
       {{ range $name, $value := .Site.Taxonomies.tags }}
       <!--a href="{{ $baseurl }}/tags/{{ $name | urlize }}" style="font-size: {{ add 8 (mul 3 $value.Count) }}px;"-->
       <a href="{{ $baseurl }}/tags/{{ $name | urlize }}">{{ $name }}</a>

@@ -7,9 +7,9 @@
 
       <div class="eyecatch text-center">
         {{ if isset .Params "eyecatch" }}
-        <img src="{{ .Site.BaseUrl }}/images/{{ .Params.eyecatch }}" alt="{{ .Title }}">
+        <img src="{{ .Site.BaseURL }}/images/{{ .Params.eyecatch }}" alt="{{ .Title }}">
         {{ else }}
-        <img src="{{ .Site.BaseUrl }}/images/nopicture.png" alt="no_picture">
+        <img src="{{ .Site.BaseURL }}/images/nopicture.png" alt="no_picture">
         {{ end }}
       </div>
 
@@ -26,11 +26,11 @@
           <div class="col-sm-5">
             <section id="share">
               <h3>Share</h3>
-              <a id="share-fb" href="http://www.facebook.com/sharer.php?src=bm&u={{ .Permalink }}&t={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseUrl }}/images/sharebutton/facebook.png" alt="Facebook"/></a>
-              <a id="share-twitter" href="http://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseUrl }}/images/sharebutton/twitter.png" alt="Twitter"/></a>
-              <a id="share-googleplus" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseUrl }}/images/sharebutton/googleplus.png" alt="Google+"/></a>
-              <a id="share-hatena" href="http://b.hatena.ne.jp/add?mode=confirm&url={{ .Permalink }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseUrl }}/images/sharebutton/hatena.png" alt="Hatena"/></a>
-              <a id="share-pocket" href="http://getpocket.com/edit?url={{ .Permalink }}&title={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseUrl }}/images/sharebutton/pocket.png" alt="Pocket"/></a>
+              <a id="share-fb" href="http://www.facebook.com/sharer.php?src=bm&u={{ .Permalink }}&t={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseURL }}/images/sharebutton/facebook.png" alt="Facebook"/></a>
+              <a id="share-twitter" href="http://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseURL }}/images/sharebutton/twitter.png" alt="Twitter"/></a>
+              <a id="share-googleplus" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseURL }}/images/sharebutton/googleplus.png" alt="Google+"/></a>
+              <a id="share-hatena" href="http://b.hatena.ne.jp/add?mode=confirm&url={{ .Permalink }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseURL }}/images/sharebutton/hatena.png" alt="Hatena"/></a>
+              <a id="share-pocket" href="http://getpocket.com/edit?url={{ .Permalink }}&title={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseURL }}/images/sharebutton/pocket.png" alt="Pocket"/></a>
             </section>
           </div>
 
@@ -38,7 +38,7 @@
             {{ if .Site.Params.ShowRelatedPost }}
             <!-- Related post. -->
 
-            {{ $baseurl := .Site.BaseUrl }}
+            {{ $baseurl := .Site.BaseURL }}
             <section id="related">
               <h3>Related Post</h3>
               <div id="tags">
@@ -50,7 +50,7 @@
               <ul id="related-posts">
                 {{ $page_link := .Permalink }}
                 {{ $tags := .Params.tags }}
-                {{ range .Site.Recent }}
+                {{ range .Site.Pages }}
                 {{ $page := . }}
                 {{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
                 {{ if and $has_common_tags (ne $page_link $page.Permalink) }}

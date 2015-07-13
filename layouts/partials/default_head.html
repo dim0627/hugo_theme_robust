@@ -5,25 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{ if eq .Url "/" }}
+    {{ if eq .URL "/" }}
     <!-- Index -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ .Site.BaseUrl }}">
+    <meta property="og:url" content="{{ .Site.BaseURL }}">
     <meta property="og:title" content="{{ .Site.Title }}">
     {{ range first 1 .Data.Pages }}
     <meta property="og:description" content="{{ .Summary }}">
     {{ if isset .Params "eyecatch" }}
-    <meta property="og:image" content="{{ .Site.BaseUrl }}/images/{{ .Params.eyecatch }}">
+    <meta property="og:image" content="{{ .Site.BaseURL }}/images/{{ .Params.eyecatch }}">
     {{ end }}
     {{ end }}
-    {{ else if eq .Url "/post/" }}
+    {{ else if eq .URL "/post/" }}
     <!-- Post -->
     <meta property="og:title" content="All Entries | {{ .Site.Title }}">
-    <meta property="og:url" content="{{ .Site.BaseUrl }}">
-    {{ else if in .Url "/tags/" }}
+    <meta property="og:url" content="{{ .Site.BaseURL }}">
+    {{ else if in .URL "/tags/" }}
     <!-- Category -->
     <meta property="og:title" content="{{ .Site.Title }}">
-    <meta property="og:url" content="{{ .Site.BaseUrl }}">
+    <meta property="og:url" content="{{ .Site.BaseURL }}">
     {{ else }}
     <!-- Article -->
     <meta property="og:type" content="article">
@@ -31,17 +31,17 @@
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:description" content="{{ .Summary }}">
     {{ if isset .Params "eyecatch" }}
-    <meta property="og:image" content="{{ .Site.BaseUrl }}/images/{{ .Params.eyecatch }}">
+    <meta property="og:image" content="{{ .Site.BaseURL }}/images/{{ .Params.eyecatch }}">
     {{ end }}
     {{ end }}
     <meta property="og:site_name" content="{{ .Site.Title }}">
 
     <title>
-      {{ if eq .Url "/" }}
+      {{ if eq .URL "/" }}
       {{ .Site.Title }}
-      {{ else if eq .Url "/post/" }}
+      {{ else if eq .URL "/post/" }}
       All Entries | {{ .Site.Title }}
-      {{ else if in .Url "/tags/" }}
+      {{ else if in .URL "/tags/" }}
       Tags | {{ .Site.Title }}
       {{ else }}
       {{ .Title }} | {{ .Site.Title }}
@@ -49,10 +49,10 @@
     </title>
 
     <!-- Icons -->
-    <link rel="shortcut icon" href="{{ .Site.BaseUrl }}/assets/favicon.ico">
+    <link rel="shortcut icon" href="{{ .Site.BaseURL }}/assets/favicon.ico">
 
     <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseUrl }}/index.xml">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}/index.xml">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Marcellus+SC" rel="stylesheet" type="text/css">
@@ -72,7 +72,7 @@
     <header id="site-header">
       <div class="container">
         <h1 class="text-center">
-          <a href="{{ .Site.BaseUrl }}" class="font-logo">{{ .Site.Title }}</a>
+          <a href="{{ .Site.BaseURL }}" class="font-logo">{{ .Site.Title }}</a>
         </h1>
       </div>
     </header>
