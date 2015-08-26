@@ -154,6 +154,10 @@ a:hover {
   border: 1px solid #eee;
 }
 
+#post .content blockquote {
+  font-size: 1.2rem;
+}
+
 #post .content h1,
 #post .content h2,
 #post .content h3,
@@ -161,10 +165,23 @@ a:hover {
 #post .content h5,
 #post .content h6 {
   font-weight: 900;
+}
+
+#post .content h1,
+#post .content h2 {
   background-color: #eee;
   border-radius: 5px;
   margin: 50px 0 20px 0;
 }
+
+#post .content h3,
+#post .content h4,
+#post .content h5,
+#post .content h6 {
+  display: inline-block;
+  box-shadow: 0 -10px 0 rgba(46, 204, 113, .3) inset;
+}
+
 #post .content h1 {
   font-size: 2.5rem;
   padding: 13px;
@@ -178,6 +195,7 @@ a:hover {
 #post .content h3 {
   font-size: 2rem;
   padding: 8px;
+  padding-bottom: 0;
 }
 
 #post .content pre {
