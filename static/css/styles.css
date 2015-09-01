@@ -132,6 +132,8 @@ a:hover {
   margin-top: 0;
   font-size: 2.5rem;
   font-weight: 900;
+  padding: 10px 0;
+  margin-bottom: 30px;
 }
 
 #post .eyecatch {
@@ -165,36 +167,37 @@ a:hover {
 #post .content h5,
 #post .content h6 {
   font-weight: 900;
+  margin-bottom: 0;
 }
 
 #post .content h1,
 #post .content h2 {
-  background-color: #eee;
-  border-radius: 5px;
-  margin: 50px 0 20px 0;
+  margin-top: 50px;
+  padding: 10px 0;
 }
 
 #post .content h3,
 #post .content h4,
 #post .content h5,
 #post .content h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: inline-block;
   box-shadow: 0 -10px 0 rgba(46, 204, 113, .3) inset;
 }
 
 #post .content h1 {
-  font-size: 2.5rem;
-  padding: 13px;
+  font-size: 3rem;
+  border-bottom: 1px solid #ddd;
 }
 
 #post .content h2 {
-  font-size: 2.3rem;
-  padding: 10px;
+  font-size: 2.5rem;
 }
 
 #post .content h3 {
   font-size: 2rem;
-  padding: 8px;
+  padding: 8px 0;
   padding-bottom: 0;
 }
 
