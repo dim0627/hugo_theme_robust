@@ -1,126 +1,27 @@
-{{ partial "default_head.html" . }}
-<div class="row">
-  <div class="col-md-9">
-    <article id="post">
-      <span class="date">{{ .Date.Format .Site.Params.DateForm }}</span>
-      <h2 class="title">{{ .Title }}</h2>
+<div class="single">
+  {{ partial "default_head.html" . }}
 
-      <div class="eyecatch text-center">
-        {{ if isset .Params "eyecatch" }}
-        <img src="{{ .Site.BaseURL }}/images/{{ .Params.eyecatch }}" alt="{{ .Title }}">
-        {{ else }}
-        <img src="{{ .Site.BaseURL }}/images/nopicture.png" alt="no_picture">
-        {{ end }}
-      </div>
+  <div class="row">
+    <div class="col-sm-9">
 
-      <div class="content">
-        {{ .Content }}
-      </div>
-
-      <div class="text-center custom-partial">
-        {{ partial "post-footer" . }}
-      </div>
-
-      <aside>
-        <div class="row">
-          <div class="col-sm-5">
-            <section id="share">
-              <h3>Share</h3>
-              <a id="share-fb" href="http://www.facebook.com/sharer.php?src=bm&u={{ .Permalink }}&t={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseURL }}/images/sharebutton/facebook.png" alt="Facebook"/></a>
-              <a id="share-twitter" href="http://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseURL }}/images/sharebutton/twitter.png" alt="Twitter"/></a>
-              <a id="share-googleplus" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseURL }}/images/sharebutton/googleplus.png" alt="Google+"/></a>
-              <a id="share-hatena" href="http://b.hatena.ne.jp/add?mode=confirm&url={{ .Permalink }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseURL }}/images/sharebutton/hatena.png" alt="Hatena"/></a>
-              <a id="share-pocket" href="http://getpocket.com/edit?url={{ .Permalink }}&title={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="{{ .Site.BaseURL }}/images/sharebutton/pocket.png" alt="Pocket"/></a>
-            </section>
-          </div>
-
-          <div class="col-sm-7">
-            {{ if .Site.Params.ShowRelatedPost }}
-            <!-- Related post. -->
-
-            {{ $baseurl := .Site.BaseURL }}
-            <section id="related">
-              <h3>Related Post</h3>
-              <div id="tags">
-                {{ range .Params.tags }}
-                <a href="{{ $baseurl }}/tags/{{ . | urlize }}"><i class="fa fa-tags"></i> {{ . }} </a>
-                {{ end }}
-              </div>
-
-              <ul id="related-posts">
-                {{ $page_link := .Permalink }}
-                {{ $tags := .Params.tags }}
-                {{ range .Site.Pages }}
-                {{ $page := . }}
-                {{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
-                {{ if and $has_common_tags (ne $page_link $page.Permalink) }}
-                <li><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
-                {{ end }}
-                {{ end }}
-              </ul>
-            </section>
-            {{ end }}
-          </div>
+      <article class="single">
+        <header>
+          <time>{{ with .Site.Params.DateForm }}{{ $.Date.Format . }}{{ else }}{{ $.Date.Format "Mon, Jan 2, 2006" }}{{ end }}</time>
+          <div class="tags">{{ range .Params.tags }}<a href="{{ $.Site.BaseURL}}tags/{{ . }}" class="tag">{{ . }}</a>{{ end }}</div>
+          <h1 class="title">{{ .Title }}</h1>
+        </header>
+        <div class="article-body">
+          {{ with .Params.image }}<div class="image" style="background-image: url({{ $.Site.BaseURL }}/images/{{ . }});"></div>{{ end }}
+          {{ .Content }}
         </div>
-      </aside>
+      </article>
+    </div>
 
-      <!-- Pagination. -->
-      <footer>
-        <section id="pagination">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="prev">
-                {{ if .Prev }}
-                <a href="{{ .Prev.Permalink }}">
-                  <i class="fa fa-chevron-left"></i>
-                  {{ .Prev.Title }}
-                </a>
-                {{ end }}
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="next text-right">
-                {{ if .Next }}
-                <a href="{{ .Next.Permalink }}">
-                  {{ .Next.Title }}
-                  <i class="fa fa-chevron-right"></i>
-                </a>
-                {{ end }}
-              </div>
-            </div>
-          </div>
-        </section>
+    <div class="col-sm-3">
+      {{ partial "sidebar.html" . }}
+    </div>
 
-        {{ if isset .Site.Params "Disqus" }}
-        {{ if .Params.comments }}
-        <!-- disqus. -->
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = '{{ .Site.Params.Disqus }}'; // required: replace example with your forum shortname
-
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function() {
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        {{ end }}
-        {{ end }}
-      </footer>
-
-    </article>
   </div>
 
-  <div class="col-md-3">
-    <aside id="site-sidebar">
-      <div class="row">
-        {{ partial "sidebar" . }}
-      </div>
-    </aside>
-  </div>
+  {{ partial "default_foot.html" . }}
 </div>
-
-{{ partial "default_foot.html" . }}

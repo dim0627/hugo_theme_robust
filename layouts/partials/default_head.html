@@ -1,82 +1,40 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ .Hugo.Generator }}
 
-    {{ if eq .URL "/" }}
-    <!-- Index -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ .Site.BaseURL }}">
-    <meta property="og:title" content="{{ .Site.Title }}">
-    {{ range first 1 .Data.Pages }}
-    <meta property="og:description" content="{{ .Summary }}">
-    {{ if isset .Params "eyecatch" }}
-    <meta property="og:image" content="{{ .Site.BaseURL }}/images/{{ .Params.eyecatch }}">
-    {{ end }}
-    {{ end }}
-    {{ else if eq .URL "/post/" }}
-    <!-- Post -->
-    <meta property="og:title" content="All Entries | {{ .Site.Title }}">
-    <meta property="og:url" content="{{ .Site.BaseURL }}">
-    {{ else if in .URL "/tags/" }}
-    <!-- Category -->
-    <meta property="og:title" content="{{ .Site.Title }}">
-    <meta property="og:url" content="{{ .Site.BaseURL }}">
-    {{ else }}
-    <!-- Article -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
-    <meta property="og:url" content="{{ .Permalink }}">
-    <meta property="og:description" content="{{ .Summary }}">
-    {{ if isset .Params "eyecatch" }}
-    <meta property="og:image" content="{{ .Site.BaseURL }}/images/{{ .Params.eyecatch }}">
-    {{ end }}
-    {{ end }}
-    <meta property="og:site_name" content="{{ .Site.Title }}">
-
-    <title>
-      {{ if eq .URL "/" }}
-      {{ .Site.Title }}
-      {{ else if eq .URL "/post/" }}
-      All Entries | {{ .Site.Title }}
-      {{ else if in .URL "/tags/" }}
-      Tags | {{ .Site.Title }}
-      {{ else }}
-      {{ .Title }} | {{ .Site.Title }}
-      {{ end }}
-    </title>
-
-    <!-- Icons -->
-    <link rel="shortcut icon" href="{{ .Site.BaseURL }}/assets/favicon.ico">
-
-    <!-- RSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/{{ with .Site.Params.SyntaxHighlightTheme }}{{ . }}{{ else  }}solarized_dark.min.css{{ end }}">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}/index.xml">
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Marcellus+SC" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/{{ .Site.Params.SyntaxHighlightTheme }}" rel="stylesheet">
-    <link href="/css/styles.css" rel="stylesheet">
-    <link href="/css/custom.css" rel="stylesheet">
+    {{ if eq .URL "/" }}
+    <title>{{ .Title }}</title>
+    <meta property='og:title' content="{{ .Title }}">
+    <meta property="og:type" content="website">
+    {{ else }}
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    <meta property='og:title' content="{{ .Title }} - {{ .Site.Title }}">
+    <meta property="og:type" content="article">
+    {{ end }}
 
-    <!--[if lt IE 9]>
-      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+    {{ with .Params.image }}<meta property="og:image" content="{{ $.Site.BaseURL }}images/{{ . }}">{{ end }}
+
   </head>
+
   <body>
 
-    <header id="site-header">
-      <div class="container">
-        <h1 class="text-center">
-          <a href="{{ .Site.BaseURL }}" class="font-logo">{{ .Site.Title }}</a>
-        </h1>
-      </div>
-    </header>
+    <div class="container-fluid">
+      <header class="site">
+        <div class="title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></div>
+      </header>
+    </div>
 
-    <main id="site-body">
-      <div class="container">
+    <div class="container site">
 
