@@ -271,6 +271,7 @@ article.single time {
 
 article.single .title {
   font-size: 2.4rem;
+  line-height: 3.2rem;
   word-break: break-all;
 }
 

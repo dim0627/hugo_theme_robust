@@ -7,10 +7,12 @@
   </div>
   {{ end }}
 
+  {{ if ne (len .Site.Menus) 0 }}
   <div class="section menu">
     <header><div class="title">Menu</div></header>
+    {{ range .Site.Menus }}
     <ul>
-      {{ range .Site.Menus.main }}
+      {{ range . }}
       {{ if .HasChildren }}
 
       <li class="{{if $.HasMenuCurrent "main" . }} active{{end}}">
@@ -27,7 +29,9 @@
         </li>
         {{end}}
     </ul>
+    {{end}}
   </div>
+  {{ end }}
 
   <div class="section">
     <header><div class="title">LatestPosts</div></header>
