@@ -12,7 +12,7 @@
         <meta itemprop="description" content="{{ .Summary }}">
         <meta itemprop="url" content="{{ .Permalink }}">
         <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-          <meta itemprop="url" content="{{ with .Params.image }}{{ $.Site.BaseURL }}images/{{ . }}{{ else }}{{ .Site.BaseURL }}images/logo.png{{ end }}" />
+          <meta itemprop="url" content="{{ $.Site.BaseURL }}images/{{ with .Params.image }}{{ . }}{{ else }}default.jpg{{ end }}" />
           <meta itemprop="width" content="800">
           <meta itemprop="height" content="800">
         </div>
@@ -28,7 +28,7 @@
           <meta itemprop="name" content="{{ .Site.Params.Author }}">
         </div>
 
-        <div class="image" style="background-image: url({{ $.Site.BaseURL }}/images/{{ with .Params.image }}{{ . }}{{ else }}default.jpg{{ end }});"></div>
+        <div class="image" style="background-image: url({{ $.Site.BaseURL }}images/{{ with .Params.image }}{{ . }}{{ else }}default.jpg{{ end }});"></div>
 
         <header>
           <time itemprop="datePublished" pubdate="pubdate" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ with .Site.Params.DateForm }}{{ $.Date.Format . }}{{ else }}{{ $.Date.Format "Mon, Jan 2, 2006" }}{{ end }}</time>
