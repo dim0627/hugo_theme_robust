@@ -1,12 +1,14 @@
-<div class="index">
+<div class="list">
   {{ partial "default_head.html" . }}
   <div class="row">
     <div class="col-sm-9">
 
+      <header class="title"><h1>{{ .Title }}</h1></header>
+
       <div class="articles">
         <div class="row">
-          {{ range $key, $value := .Paginator.Pages }}
-          <div class="col-sm-{{ if lt $key 4 }}6{{ else }}4{{ end }}">
+          {{ range (.Paginate .Data.Pages).Pages }}
+          <div class="col-sm-4">
             {{ .Render "li" }}
           </div>
           {{ end }}

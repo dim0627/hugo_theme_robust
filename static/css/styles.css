@@ -1,13 +1,19 @@
 html {
-  font-size: inherit;
+  font-size: 16px;
 }
 
 body {
   font-family: 'Open Sans', "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-  font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  font-size: inherit;
   color: #000;
   background-color: #fafafa;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 html,
@@ -42,6 +48,10 @@ code:not(.hljs) {
   background-color: #f5f5f5;
   border-bottom: 1px solid #ddd;
   color: #000;
+  font-size: .8rem;
+}
+
+code, pre {
   font-size: .8rem;
 }
 
@@ -117,6 +127,10 @@ aside.site .section header .title:before {
   border-left: 5px solid transparent;
 }
 
+div.list header.title {
+  margin-bottom: 2rem;
+}
+
 article.li {
   margin-bottom: 2rem;
   background-color: #fff;
@@ -149,6 +163,7 @@ article.li time {
   padding: 3px 7px;
   color: #fff;
   background-color: #333;
+  border-bottom: 2px solid #000;
   font-size: .7rem;
 }
 
@@ -202,6 +217,7 @@ article.li .summary {
   font-size: .8rem;
   margin-left: 50px;
   line-height: 1rem;
+  border-bottom: none;
 }
 
 .sm article.li .title {
@@ -236,7 +252,16 @@ article.single header:before {
 
 article.single aside {
   padding: 2rem;
-  padding-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  article.single aside {
+    padding: 1rem;
+  }
+}
+
+article.single aside .section {
+  margin-bottom: 2rem;
 }
 
 article.single time {
@@ -275,7 +300,6 @@ article.single .article-body {
   max-width: 650px;
   margin: 0 auto;
   padding: 0 1rem;
-  padding-bottom: 4rem;
 }
 
 article.single .article-body h1,
@@ -413,4 +437,27 @@ article.single .article-body pre {
   content: '\f105';
   font-family: 'Fontawesome';
   margin-right: 5px;
+}
+
+nav.paging {
+  position: relative;
+  min-height: 5rem;
+}
+
+nav.paging a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #333;
+  border-bottom: 2px solid #000;
+  color: #fff;
+}
+
+nav.paging .left,
+nav.paging .right {
+  position: absolute;
+}
+
+nav.paging .right {
+  right: 0;
 }
