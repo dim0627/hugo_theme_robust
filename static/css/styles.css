@@ -175,7 +175,7 @@ article.li .title {
 
 article.li .summary {
   word-break: break-all;
-  max-height: 5.5rem;
+  height: 5.5rem;
   overflow: hidden;
   color: #999;
   font-size: .8rem;
