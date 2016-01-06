@@ -1,8 +1,10 @@
 <article class="li">
   <a href="{{ .Permalink }}" class="clearfix">
-    <time>{{ with .Site.Params.DateForm }}{{ $.Date.Format . }}{{ else }}{{ $.Date.Format "Mon, Jan 2, 2006" }}{{ end }}</time>
     <div class="image"{{ with .Params.image }} style="background-image: url({{ $.Site.BaseURL }}/images/{{ . }});"{{ end }}></div>
-    <h2 class="title">{{ .Title }}</h2>
-    <div class="summary">{{ .Summary }}</div>
+    <div class="detail">
+      <time>{{ with .Site.Params.DateForm }}{{ $.Date.Format . }}{{ else }}{{ $.Date.Format "Mon, Jan 2, 2006" }}{{ end }}</time>
+      <h2 class="title">{{ .Title }}</h2>
+      <div class="summary">{{ .Summary }}</div>
+    </div>
   </a>
 </article>

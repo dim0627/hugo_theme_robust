@@ -5,15 +5,22 @@
     <div class="col-sm-9">
 
       <article class="single">
+
+        {{ with .Params.image }}<div class="image" style="background-image: url({{ $.Site.BaseURL }}/images/{{ . }});"></div>{{ end }}
+
         <header>
           <time>{{ with .Site.Params.DateForm }}{{ $.Date.Format . }}{{ else }}{{ $.Date.Format "Mon, Jan 2, 2006" }}{{ end }}</time>
-          <div class="tags">{{ range .Params.tags }}<a href="{{ $.Site.BaseURL}}tags/{{ . }}" class="tag">{{ . }}</a>{{ end }}</div>
           <h1 class="title">{{ .Title }}</h1>
         </header>
+
         <div class="article-body">
-          {{ with .Params.image }}<div class="image" style="background-image: url({{ $.Site.BaseURL }}/images/{{ . }});"></div>{{ end }}
           {{ .Content }}
         </div>
+
+        <aside>
+          <div class="section">{{ range .Params.tags }}<a href="{{ $.Site.BaseURL}}tags/{{ . }}" class="tag">{{ . }}</a> {{ end }}</div>
+        </aside>
+
       </article>
     </div>
 
