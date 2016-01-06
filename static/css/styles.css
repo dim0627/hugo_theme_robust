@@ -462,3 +462,13 @@ nav.paging .right {
 nav.paging .right {
   right: 0;
 }
+
+.share {
+  text-align: right;
+}
+
+.share a {
+  display: inline-block;
+  color: #999;
+  padding: 0 .5rem;
+}
