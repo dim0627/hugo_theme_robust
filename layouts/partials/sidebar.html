@@ -46,7 +46,7 @@
   <div class="section taxonomies">
     <header><div class="title">{{ $key | singularize }}</div></header>
     <div class="content">
-      {{ range $c_key, $c_value := $value }}<a href="{{ $.Site.BaseURL}}{{ $key }}/{{ $c_key | urlize }}">{{ $c_key }}</a>{{ end }}
+      {{ range first 10 $value.ByCount }}<a href="{{ $.Site.BaseURL}}{{ $key }}/{{ .Name | urlize }}">{{ .Name }}</a>{{ end }}
     </div>
   </div>
   {{ end }}
