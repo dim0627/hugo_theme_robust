@@ -1,4 +1,4 @@
-![screenshot](https://raw.githubusercontent.com/dim0627/hugo_theme_robust/master/images/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/dim0627/hugo_theme_aglaus/master/images/screenshot.png)
 
 # Features
 
@@ -26,8 +26,8 @@ canonifyurls = true
 paginate = 3
 
 [params]
-  disqusShortname = "your disqus id."
-  ```
+  disqusShortname = "your disqus id." # optional
+```
 
 **example post**
 
@@ -46,6 +46,9 @@ categories = [
     "Development",
     "golang",
 ]
+
+image = "image.jpg" # optional
+toc = false # optional, When set to FALSE this parameter, table of contents not appears in only this article.
 +++
 
 Contents here
