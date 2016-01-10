@@ -49,6 +49,7 @@ code:not(.hljs) {
   border-bottom: 1px solid #ddd;
   color: #000;
   font-size: .8rem;
+  border-radius: 2px;
 }
 
 code, pre {
