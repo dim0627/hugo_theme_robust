@@ -343,7 +343,7 @@ article.single .article-body h6 {
 article.single .article-body p {
   line-height: 1.5rem;
   margin-bottom: 1rem;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 article.single .article-body blockquote {
