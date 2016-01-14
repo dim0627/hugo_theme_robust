@@ -30,9 +30,9 @@
 
         <div class="image" style="background-image: url({{ $.Site.BaseURL }}images/{{ with .Params.image }}{{ . }}{{ else }}default.jpg{{ end }});"></div>
 
-        <header>
+        <header class="article-header">
           <time itemprop="datePublished" pubdate="pubdate" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ with .Site.Params.DateForm }}{{ $.Date.Format . }}{{ else }}{{ $.Date.Format "Mon, Jan 2, 2006" }}{{ end }}</time>
-          <h1 class="title">{{ .Title }}</h1>
+          <h1 class="article-title">{{ .Title }}</h1>
         </header>
 
         <div class="article-body" itemprop="articleBody">

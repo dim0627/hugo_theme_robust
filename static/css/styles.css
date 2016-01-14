@@ -138,7 +138,7 @@ article.li {
 }
 
 article.li .detail {
-  padding: .5rem;
+  padding: 1rem;
 }
 
 article.li a {
@@ -233,54 +233,16 @@ article.li .summary {
 
 article.single {
   background-color: #fff;
-  box-shadow: 0 1px 3px #ddd;
 }
 
-article.single header {
-  padding: 2rem 2rem 3rem 2rem;
-}
-
-article.single header:before {
-  position: absolute;
-}
-
-@media (max-width: 768px) {
-  article.single header {
-    padding: 1rem;
-    padding-bottom: 2rem;
-  }
-}
-
-article.single aside {
+article.single .article-header {
   padding: 2rem;
 }
 
 @media (max-width: 768px) {
-  article.single aside {
+  article.single .article-header {
     padding: 1rem;
-  }
-}
-
-article.single aside .section {
-  margin-bottom: 2rem;
-}
-
-article.single time {
-  color: #999;
-  font-size: .8rem;
-}
-
-article.single .title {
-  font-size: 2.4rem;
-  line-height: 3.2rem;
-  word-break: break-all;
-}
-
-@media (max-width: 768px) {
-  article.single .title {
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-    font-weight: 900;
+    padding-bottom: 2rem;
   }
 }
 
@@ -289,7 +251,6 @@ article.single .image {
   background-color: #eee;
   background-position: center;
   background-size: cover;
-  margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -368,6 +329,8 @@ article.single .article-body pre {
   border-radius: 0;
 }
 
+
+
 #TableOfContents {
   font-size: .8rem;
   line-height: 1.5rem;
@@ -439,6 +402,20 @@ article.single .article-body pre {
   content: '\f105';
   font-family: 'Fontawesome';
   margin-right: 5px;
+}
+
+article.single aside {
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  article.single aside {
+    padding: 1rem;
+  }
+}
+
+article.single aside .section {
+  margin-bottom: 2rem;
 }
 
 nav.paging {
