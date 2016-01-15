@@ -10,26 +10,26 @@
   {{ if ne (len .Site.Menus) 0 }}
   <div class="section menu">
     <header><div class="title">Menu</div></header>
+
     {{ range .Site.Menus }}
     <ul>
       {{ range . }}
-      {{ if .HasChildren }}
-
-      <li class="{{if $.HasMenuCurrent "main" . }} active{{end}}">
-        <a href="#">{{ .Pre }} <span>{{ .Name }}</span> <span class="menu-arrow arrow_carrot-right"></span></a>
-        <ul class="sub">
+      <li>
+        {{ if .HasChildren }}
+        <a href="#">{{ .Pre }} {{ .Name }}</a>
+        <ul>
           {{ range .Children }}
-          <li{{if $.IsMenuCurrent "main" . }} class="active"{{end}}><a href="{{.URL}}">{{ .Name }}</a></li>
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
           {{ end }}
         </ul>
-        {{else}}
-        <li>
-          <a href="{{.URL}}">{{ .Pre }} <span>{{ .Name }}</span></a>
-          {{end}}
-        </li>
-        {{end}}
+      </li>
+      {{ else }}
+      <li><a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
+      {{ end }}
+      {{end}}
     </ul>
     {{end}}
+
   </div>
   {{ end }}
 
