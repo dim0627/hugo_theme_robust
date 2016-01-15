@@ -37,6 +37,7 @@ a:active {
 
 a.tag {
   font-size: .8rem;
+  line-height: 1rem;
   color: #999;
 }
 
@@ -54,6 +55,7 @@ code:not(.hljs) {
 
 code, pre {
   font-size: .8rem;
+  line-height: 1rem;
 }
 
 img {
@@ -61,11 +63,11 @@ img {
 }
 
 h1, h2, h3, h4, h5 ,h6 { margin: 0; }
-h1 { font-size: 1.6rem; line-height: 2.4rem; }
-h2 { font-size: 1.4rem; line-height: 2.1rem; }
-h3 { font-size: 1.1rem; line-height: 1.7rem; }
-h4 { font-size: 1rem; line-height: 1.5rem; }
-h5 { font-size: 1rem; line-height: 1.5rem; }
+h1 { font-size: 1.6rem; line-height: 2rem; }
+h2 { font-size: 1.4rem; line-height: 2rem; }
+h3 { font-size: 1.1rem; line-height: 2rem; }
+h4 { font-size: 1rem; line-height: 1rem; }
+h5 { font-size: 1rem; line-height: 1rem; }
 
 header.site {
   padding: 2rem 0;
@@ -166,6 +168,7 @@ article.li time {
   background-color: #333;
   border-bottom: 2px solid #000;
   font-size: .7rem;
+  line-height: 1rem;
 }
 
 article.li .title {
@@ -176,10 +179,11 @@ article.li .title {
 
 article.li .summary {
   word-break: break-all;
-  height: 5.5rem;
+  height: 5rem;
   overflow: hidden;
   color: #999;
   font-size: .8rem;
+  line-height: 1rem;
 }
 
 @media (min-width: 767px) {
@@ -189,10 +193,6 @@ article.li .summary {
 
   .articles .col-sm-4 article.li .title {
     font-size: 1.2rem;
-  }
-
-  .articles .col-sm-4 article.li .summary {
-    max-height: 4.5rem;
   }
 }
 
@@ -223,13 +223,13 @@ article.li .summary {
   padding: 0;
   background-color: transparent;
   color: #999;
-  line-height: 1.2rem;
+  line-height: 1rem;
   font-size: .8rem;
   border-bottom: none;
 }
 
 .sm article.li .title {
-  line-height: 1.2rem;
+  line-height: 1rem;
   font-size: .8rem;
 }
 
@@ -316,12 +316,12 @@ article.single .article-body p {
 
 article.single .article-body blockquote {
   padding: .5rem;
-  font-size: .8rem;
   border-left: none;
   background-color: #eee;
 }
 
 article.single .article-body blockquote p {
+  font-size: .8rem;
   line-height: 1rem;
 }
 
@@ -335,15 +335,15 @@ article.single .article-body pre {
   border-radius: 0;
 }
 
-
+article.single .article-body pre code {
+  font-size: .8rem;
+  line-height: 1rem;
+  padding: 1rem;
+}
 
 #TableOfContents {
   font-size: .8rem;
   line-height: 1.5rem;
-}
-
-#TableOfContents code:not(.hljs) {
-  font-size: .7rem;
 }
 
 #TableOfContents a {
@@ -456,3 +456,4 @@ nav.paging .right {
   color: #999;
   padding: 0 .5rem;
 }
+
