@@ -186,10 +186,6 @@ article.li .summary {
   line-height: 1rem;
 }
 
-.articles .col-sm-4 article.li .detail {
-  padding: .5rem;
-}
-
 @media (min-width: 767px) {
   .articles .col-sm-4 article.li .image {
     height: 10rem;
@@ -197,6 +193,10 @@ article.li .summary {
 
   .articles .col-sm-4 article.li .title {
     font-size: 1.2rem;
+  }
+
+  .articles .col-sm-4 article.li .detail {
+    padding: .5rem;
   }
 }
 
