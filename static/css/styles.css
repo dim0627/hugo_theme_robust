@@ -308,6 +308,12 @@ article.single .article-body h2 {
   margin-bottom: 1rem;
 }
 
+article.single .article-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
+}
+
 article.single .article-body h3,
 article.single .article-body h4,
 article.single .article-body h5,
@@ -322,14 +328,19 @@ article.single .article-body p {
   word-break: break-word;
 }
 
+article.single .article-body ul,
+article.single .article-body ol {
+  padding-left: 1.5rem;
+}
+
 article.single .article-body blockquote {
   padding: .5rem;
   border-left: none;
   background-color: #eee;
+  font-size: .8rem;
 }
 
 article.single .article-body blockquote p {
-  font-size: .8rem;
   line-height: 1rem;
 }
 
