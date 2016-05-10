@@ -10,7 +10,8 @@ html {
 }
 
 body {
-  font-family: "Noticia Text", "Hiragino Sans", "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-family: "Noticia Text", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+  font-size: inherit;
   font-size: inherit;
   color: #000;
   line-height: 1rem;
@@ -49,6 +50,12 @@ h2 { font-size: 1.3rem; line-height: 2rem; }
 h3 { font-size: 1.1rem; line-height: 2rem; }
 h4 { font-size: 1rem; line-height: 1rem; }
 h5 { font-size: 1rem; line-height: 1rem; }
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.4rem; line-height: 1.5rem; }
+  h2 { font-size: 1.2rem; line-height: 1.5rem; }
+}
+
 
 /* Override */
 #TableOfContents {
@@ -134,6 +141,22 @@ h5 { font-size: 1rem; line-height: 1rem; }
   padding-left: 1rem;
 }
 
+/* Parts:share */
+.p-share {
+  text-align: center;
+}
+
+.p-share a {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  background-color: #263238;
+  border-radius: 100%;
+  color: #eceff1;
+  margin: 0 .5rem;
+}
+
 /* Parts:page-title */
 .p-page-title {
   margin-bottom: 2rem;
@@ -164,6 +187,10 @@ section>div {
 }
 
 /* Parts:article */
+article {
+  word-break: break-all;
+}
+
 article>a {
   display: block;
 }
@@ -175,12 +202,6 @@ article .image {
 
 article .date {
   font-size: .8rem;
-}
-
-article .summary {
-  line-height: 1.25rem;
-  max-height: 5rem;
-  overflow: hidden;
 }
 
 /* Parts:article:li */
@@ -215,7 +236,9 @@ article.li .title {
 article.grid {
   margin-bottom: 2rem;
   background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.16);
+  height: 24rem;
+  max-height: 24rem;
+  overflow: hidden;
 }
 
 article.grid .image {
@@ -224,10 +247,16 @@ article.grid .image {
 
 article.grid .title {
   margin-bottom: .5rem;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  max-height: 4.5rem;
+  overflow: hidden;
 }
 
-article .summary {
+article.grid .summary {
   color: #333;
+  max-height: 4rem;
+  overflow: hidden;
 }
 
 article.grid footer {
@@ -236,25 +265,36 @@ article.grid footer {
 
 /* Parts:article:single */
 article.single {
+  margin-bottom: 2rem;
   padding-bottom: 2rem;
   background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.16);
 }
 
 article.single .image {
   min-height: 24rem;
-  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  article.single .image {
+    min-height: 12rem;
+  }
 }
 
 article.single .body {
   margin: 0 auto;
+  margin-bottom: 2rem;
   padding: 0 2rem;
 }
 
 @media (max-width: 768px) {
   article.single .body {
-    padding: 0 .5rem;
+    padding: 0 1rem;
   }
+}
+
+article.single .body a {
+  color: #78909c;
+  text-decoration: underline;
 }
 
 article.single .body p {
@@ -277,10 +317,10 @@ article.single .body pre code {
 
 @media (max-width: 768px) {
   article.single .body pre {
-    margin: 1rem -.5rem;
+    margin: 1rem -1rem;
   }
   article.single .body pre code {
-    padding: 1rem .5rem;
+    padding: 1rem 1rem;
   }
 }
 
