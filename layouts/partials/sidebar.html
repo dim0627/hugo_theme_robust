@@ -1,54 +1,58 @@
 <aside class="site">
 
   {{ if and .IsPage (ne .Params.toc false) }}
-  <div class="section">
-    <header><div class="title">TableOfContents</div></header>
-    <div class="list-default">{{ .TableOfContents }}</div>
-  </div>
+  <section>
+    <header>Table Of Contents</header>
+    <div>{{ .TableOfContents }}</div>
+  </section>
   {{ end }}
 
   {{ if ne (len .Site.Menus) 0 }}
-  <div class="section menu">
-    <header><div class="title">Menu</div></header>
-
-    {{ range .Site.Menus }}
-    <ul>
-      {{ range . }}
-      <li>
-        {{ if .HasChildren }}
-        <a href="#">{{ .Pre }} {{ .Name }}</a>
+  <section>
+    <header>Menu</header>
+    <div>
+      <nav class="p-menu">
+        {{ range .Site.Menus }}
         <ul>
-          {{ range .Children }}
-          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ range . }}
+          <li>
+            {{ if .HasChildren }}
+            <a href="#">{{ .Pre }} {{ .Name }}</a>
+            <ul>
+              {{ range .Children }}
+              <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+              {{ end }}
+            </ul>
+          </li>
+          {{ else }}
+          <li><a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
           {{ end }}
+          {{end}}
         </ul>
-      </li>
-      {{ else }}
-      <li><a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></li>
-      {{ end }}
-      {{end}}
-    </ul>
-    {{end}}
-
-  </div>
+        {{end}}
+      </nav>
+    </div>
+  </section>
   {{ end }}
 
-  <div class="section">
-    <header><div class="title">LatestPosts</div></header>
-    <div class="content">
+  <section>
+    <header>LatestPosts</header>
+    <div>
       {{ range first 10 .Site.Pages }}
-      <div class="sm">{{ .Render "li" }}</div>
+      {{ .Render "li" }}
       {{ end }}
     </div>
-  </div>
+  </section>
 
   {{ range $key, $value := .Site.Taxonomies }}
-  <div class="section taxonomies">
-    <header><div class="title">{{ $key | singularize }}</div></header>
-    <div class="content">
-      {{ range first 10 $value.ByCount }}<a href="{{ $.Site.BaseURL}}{{ $key }}/{{ .Name | urlize }}">{{ .Name }}</a>{{ end }}
+  <section>
+    <header>{{ $key | singularize }}</header>
+    <div>
+      <ul>
+        {{ range first 10 $value.ByCount }}<li><a href="{{ $.Site.BaseURL}}{{ $key }}/{{ .Name | urlize }}">{{ .Name }}</a></li>{{ end }}
+      </ul>
     </div>
-  </div>
+  </section>
   {{ end }}
 
 </aside>

@@ -1,28 +1,31 @@
-<div class="list">
-  {{ partial "default_head.html" . }}
+{{ partial "header_before.html" . }}
+{{ partial "header_after.html" . }}
+
+<div class="container">
   <div class="row">
-    <div class="col-sm-9">
+    <div class="col-md-9">
 
-      <header class="title"><h1>{{ .Title }}</h1></header>
+      <h1 class="p-page-title">{{ .Title }}</h1>
 
-      <div class="articles">
-        <div class="row">
-          {{ range (.Paginate .Data.Pages).Pages }}
-          <div class="col-sm-4">
-            {{ .Render "li" }}
-          </div>
-          {{ end }}
+      <div class="row">
+        {{ range (.Paginate .Data.Pages).Pages }}
+        <div class="col-sm-4">
+          {{ .Render "grid" }}
         </div>
+        {{ end }}
       </div>
 
       {{ partial "pagination.html" . }}
 
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-md-3">
       {{ partial "sidebar.html" . }}
     </div>
 
   </div>
-  {{ partial "default_foot.html" . }}
+
 </div>
+
+{{ partial "footer.html" . }}
+
