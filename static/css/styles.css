@@ -280,6 +280,10 @@ article.single .image {
   }
 }
 
+article.single aside {
+  padding: 0 1rem;
+}
+
 article.single .body {
   margin: 0 auto;
   margin-bottom: 2rem;
