@@ -1,24 +1,28 @@
-{{ partial "header_before.html" . }}
-{{ partial "header_after.html" . }}
+{{ define "title" }}{{ .Title }} - {{ end }}
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-9">
+{{ define "main" }}
+<div class="row">
+  <div class="col-md-8">
 
-      <h1 class="p-page-title">{{ .Title }}</h1>
+    <header class="p-page-title">
+      <h1 class="title">{{ .Title }}</h1>
+    </header>
 
-      <ul class="h-inline">
-        {{ range $key, $value := .Data.Terms }}<li><a href="/{{ $.Data.Plural }}/{{ $key | urlize }}/" class="{{ $.Data.Singular }}">{{ $key }}</a></li>{{ end }}
-      </ul>
-
-    </div>
-
-    <div class="col-md-3">
-      {{ partial "sidebar.html" . }}
-    </div>
+    <ul class="p-terms">
+      {{ $data := .Data }}
+      {{ range $key, $value := .Data.Terms }}
+      <li>
+        <h2 class="terms-title">
+          <a href="{{ $.Site.BaseURL }}{{ $data.Plural }}/{{ $key | urlize }}">{{ $key }}</a> ({{ len $value }})
+        </h2>
+      </li>
+      {{ end }}
+    </ul>
 
   </div>
-
+  <div class="col-md-4">
+    {{ partial "sidebar.html" . }}
+  </div>
 </div>
+{{ end }}
 
-{{ partial "footer.html" . }}

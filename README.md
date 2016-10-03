@@ -1,62 +1,91 @@
+# What is this.
+
+This is the grid based theme for Hugo.
+
+[Hugo :: A fast and modern static website engine](https://gohugo.io/)
+
+## PC View
+
 ![screenshot](https://raw.githubusercontent.com/dim0627/hugo_theme_robust/master/images/screenshot.png)
+
+## SP View(Responsive)
+
+![screenshot](https://raw.githubusercontent.com/dim0627/hugo_theme_robust/master/images/responsive.png)
 
 # Features
 
+* Responsive design
 * Google Analytics
+* Thumbnail
+* Structured data(Article and Breadcrumb)
+* Twitter cards
+* OGP
 * Disqus
-* Share Buttons(fb, twitter, google+, pocket)
-* Eye-catching Image
-* MicroData
-* Readable text(Customized Vertical Rhythm).
+* Syntax Highlight
 
-# Installation
+# `config.toml` example
 
-[hugoThemes#Installing Themes](https://github.com/spf13/hugoThemes#installing-themes).
+```
+baseurl = "https://example.com/"
+title = "SiteTitle"
 
-# Configuration
-
-**config.yaml**
-
-``` toml
-baseurl = "http://hugo.spf13.com/"
-title = "Hugo Themes"
-author = "Steve Francia"
-copyright = "Copyright (c) 2008 - 2014, Steve Francia; all rights reserved."
-canonifyurls = true
-paginate = 3
+googleAnalytics = "UA-XXXXXXXX-XX" # Optional
+disqusShortname = "XYW"
 
 [params]
-  disqusShortname = "your disqus id." # optional
+  dateformat = "Jan 2, 2006" # Optional
 ```
 
-**example post**
+# Frontmatter example
 
-``` toml
+```
 +++
-title = "Getting Started with Hugo"
-description = ""
-tags = [
-    "go",
-    "golang",
-    "hugo",
-    "development",
-]
-date = "2014-04-02"
-categories = [
-    "Development",
-    "golang",
-]
-
-image = "image.jpg" # optional
-toc = false # optional, When set to FALSE this parameter, table of contents not appears in only this article.
+date = "2016-09-28T17:00:00+09:00"
+title = "Article title here"
+thumbnail = "thumbnail.jpg" # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
 +++
-
-Contents here
 ```
 
-# Contact us
+# Shortcodes
 
-Please mail to `dim0627@gmail.com` or SNS.
+## Image
 
-[https://www.facebook.com/daisuke.tsuji.735](https://www.facebook.com/daisuke.tsuji.735)
+```
+{{% img src="images/image.jpg" %}}
+{{% img src="images/image.jpg" class="right" %}}
+{{% img src="images/image.jpg" class="left" %}}
+{{% img src="images/image.jpg" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+```
+
+![screenshot](https://raw.githubusercontent.com/dim0627/hugo_theme_robust/master/images/include-images.png)
+
+## Clear
+
+Break float.
+
+```
+{{% img src="images/image.jpg" class="right" %}}
+
+brabrabra # Displayed left of the image.
+
+{{% clear %}}
+
+brabrabra # Displayed below of the image.
+```
+
+# Development mode
+
+Supported development mode.
+
+```
+env HUGO_ENV="DEV" hugo server --watch --buildDrafts=true --buildFuture=true -t robust
+```
+
+This mode is
+
+* Not show Google Analytics tags.
+* Show `IsDraft`.
+* Show `WordCount`.
+
+And set `{{ if ne (getenv "HUGO_ENV") "DEV" }} Set elements here. {{ end }}` if you want to place only in a production environment.
 

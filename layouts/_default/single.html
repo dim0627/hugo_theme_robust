@@ -1,93 +1,31 @@
-{{ partial "header_before.html" . }}
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage":{
-      "@type":"WebPage",
-      "@id":"{{ .Site.BaseURL }}"
-    },
-    "headline": "{{ .Title }} | {{ .Site.Params.titlefull }} {{ .Site.Params.titlesub}}",
-    "image": {
-      "@type": "ImageObject",
-      "url": "",
-      "height": 700,
-      "width": 700
-    },
-    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05JST" }}",
-    "dateModified": "{{ .Date.Format "2006-01-02T15:04:05JST" }}",
-    "author": {
-      "@type": "Person",
-      "name": "{{ .Site.Params.author }}",
-      "image": "{{ .Site.BaseURL }}images/logo.png"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "{{ .Site.Copyright }}",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "{{ .Site.BaseURL }}images/logo.png",
-        "height": 60,
-        "width": 60
-      }
-    },
-    "description": "{{ .Description }}"
-  }
-</script>
-{{ partial "header_after.html" . }}
+{{ define "title" }}{{ .Title }} - {{ end }}
 
-<div class="container">
+{{ define "meta" }}
+{{ partial "single_meta.html" . }}
+{{ partial "single_json_ld.html" . }}
+{{ end }}
 
-  <div class="row">
-    <div class="col-md-9">
+{{ define "main" }}
+<div class="row">
+  <div class="col-md-8">
 
-      <article class="single">
-        <div class="image" style="background-image: url({{ $.Site.BaseURL }}images/{{ with .Params.image }}{{ . }}{{ else }}default.jpg{{ end }});"></div>
-        <div class="body">
-          <h1>{{ .Title }}</h1>
-          {{ .Content }}
-        </div>
+    <nav class="p-crumb">
+      <ol>
+        <li><a href="{{ .Site.BaseURL }}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        {{ with .Section }}
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ $.Site.BaseURL }}{{ . | urlize }}/" itemprop="url"><span itemprop="title">{{ . }}</span></a></li>
+        {{ end }}
+        <li class="active">{{ .Title }}</li>
+      </ol>
+    </nav>
 
-        <aside>
-          <section>
-            <div>
-              <div class="p-share">
-                <a href="http://www.facebook.com/sharer.php?src=bm&u={{ .Permalink }}&t={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-                <a href="http://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-                <a href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-                <a href="http://getpocket.com/edit?url={{ .Permalink }}&title={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-              </div>
-            </div>
-          </section>
+    {{ .Render "summary" }}
 
-          {{ if and (ne .Site.Params.comment false) (ne .Params.comment false) }}
-          {{ with .Site.Params.disqusShortname }}
-          <section>
-            <div>
-              <div id="disqus_thread"></div>
-              <script type="text/javascript">
-                (function() {
-                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                  var disqus_shortname = '{{ . }}';
-                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-              </script>
-              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-          </section>
-          {{ end }}
-          {{ end }}
-        </aside>
+    {{ template "_internal/disqus.html" . }}
+  </div>
 
-      </article>
-
-    </div>
-    <div class="col-md-3">
-      {{ partial "sidebar.html" . }}
-    </div>
+  <div class="col-md-4">
+    {{ partial "sidebar.html" . }}
   </div>
 </div>
-
-{{ partial "footer.html" . }}
+{{ end }}
