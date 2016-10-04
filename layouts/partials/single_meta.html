@@ -1,7 +1,7 @@
 <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ .Site.BaseURL }}images/{{ .Params.thumbnail | default "default.png" }}">
+<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail | default "images/default.png" }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:description" content="{{ replaceRE "\n" "" (.Summary | plainify) }}">
 <meta property="og:locale" content="ja_JP">
@@ -11,5 +11,5 @@
 <meta name="twitter:url" content="{{ .Permalink }}">
 <meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}">
 <meta name="twitter:description" content="{{ replaceRE "\n" "" (.Summary | plainify) }}">
-<meta name="twitter:image" content="{{ .Site.BaseURL }}images/{{ .Params.thumbnail | default "default.png" }}">
+<meta name="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail | default "images/default.png" }}">
 

@@ -9,7 +9,7 @@
     "headline": "{{ .Title }} - {{ .Site.Title }}",
     "image": {
       "@type": "ImageObject",
-      "url": "{{ .Site.BaseURL }}images/{{ .Params.thumbnail | default "default.png" }}",
+      "url": "{{ .Site.BaseURL }}{{ .Params.thumbnail | default "images/default.png" }}",
       "height": 700,
       "width": 700
     },
