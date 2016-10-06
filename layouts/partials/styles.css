@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  font-family: Asap,'Hiragino Kaku Gothic Pro',メイリオ,Meiryo,sans-serif;
+  font-family: 'Noto Sans','Hiragino Kaku Gothic Pro',メイリオ,Meiryo,sans-serif;
   font-size: inherit;
   font-weight: 300;
   line-height: 1rem;
@@ -156,7 +156,7 @@ section.article-footer>header {
 /* Parts:logo */
 .p-logo {
   display: inline-block;
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
 }
 
@@ -215,6 +215,7 @@ article {
 article .title {
   margin: 0;
   margin-bottom: .5rem;
+  font-weight: 700;
 }
 
 article .title a {
@@ -226,11 +227,6 @@ article .thumb {
   background-image: url({{ .Site.BaseURL }}images/default.jpg);
   background-position: center;
   background-size: cover;
-}
-
-article>header {
-  border-bottom: 1px solid #eee;
-  margin-bottom: 1.5rem;
 }
 
 article .summary {
@@ -258,23 +254,29 @@ article.li .thumb {
   margin-bottom: .5rem;
 }
 
-article.li.sm>header {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
 article.li.sm {
   background-color: transparent;
+  margin-bottom: .5rem;
+}
+
+article.li.sm>header {
+  padding: .5rem 0;
 }
 
 article.li.sm .title {
   font-size: .8rem;
   line-height: 1rem;
+  margin-bottom: .25rem;
+}
+
+article.li.sm .p-facts {
+  font-size: .6rem;
+  margin-bottom: 0;
 }
 
 article.li.sm .thumb {
   float: left;
-  margin-right: 1rem;
+  margin-right: .5rem;
   height: 3rem;
   width: 3rem;
 }
