@@ -154,9 +154,12 @@ section.article-footer>header {
 }
 
 /* Parts:logo */
+.h-logo {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .p-logo {
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
 }
 

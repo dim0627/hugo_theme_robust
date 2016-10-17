@@ -2,7 +2,11 @@
 <html>
   <head>
     {{ partial "meta.html" . }}
+    {{ with .Site.Params.googlefonts }}
+    <link href="{{ . }}" rel="stylesheet">
+    {{ else }}
     <link href="//fonts.googleapis.com/css?family=Noto+Sans:400,700|Montserrat" rel="stylesheet">
+    {{ end }}
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
@@ -10,6 +14,8 @@
     {{ block "meta" . }}{{ end }}
     <style>
       {{ replaceRE " +" " " (replaceRE "\n" "" (partial "styles.css" .)) | safeCSS }}
+      {{ with .Site.Params.fontfamily }} body { font-family: {{ . | safeCSS }}; } {{ end }}
+      {{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}
     </style>
   </head>
 
@@ -21,7 +27,7 @@
     <header class="l-header">
       <div class="container">
         <div class="p-logo">
-          <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+          <a href="{{ .Site.BaseURL }}" class="h-logo">{{ .Site.Title }}</a>
         </div>
       </div>
     </header>
