@@ -23,6 +23,15 @@ This is the grid based theme for Hugo.
 * Disqus
 * Syntax Highlight
 
+## Installation
+
+```
+$ cd themes
+$ git clone https://github.com/dim0627/hugo_theme_robust.git
+```
+
+[Hugo \- Installing Hugo](http://gohugo.io/overview/installing/)
+
 # `config.toml` example
 
 ```
