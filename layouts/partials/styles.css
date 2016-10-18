@@ -153,6 +153,41 @@ section.article-footer>header {
   margin-bottom: 0;
 }
 
+/* Parts:share */
+.p-share {
+  min-width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.p-share .share-inner {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: .25rem;
+}
+
+.p-share a {
+  display: table-cell;
+  text-align: center;
+  font-weight: 700;
+  font-size: .7rem;
+  padding: .5rem 0;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.p-share a.ht { background-color: #00a4de; border-bottom: 2px solid #0083b1; }
+.p-share a.fb { background-color: #3b5998; border-bottom: 2px solid #2f4779; }
+.p-share a.tw { background-color: #1da1f2; border-bottom: 2px solid #1780c1; }
+.p-share a.gp { background-color: #dd4b39; border-bottom: 2px solid #b03c2d; }
+.p-share a.ln { background-color: #00c300; border-bottom: 2px solid #009c00; }
+
+.p-share a.ht::before { content: 'Hatena'; }
+.p-share a.fb::before { content: 'Facebook'; }
+.p-share a.tw::before { content: 'Twitter'; }
+.p-share a.gp::before { content: 'Google+'; }
+.p-share a.ln::before { content: 'LINE'; }
+
 /* Parts:logo */
 .h-logo {
   font-family: 'Montserrat', sans-serif;
@@ -240,6 +275,7 @@ article .summary {
 
 article.single .thumb {
   height: 18rem;
+  margin-bottom: 1rem;
 }
 
 @media (max-width:  768px)  {

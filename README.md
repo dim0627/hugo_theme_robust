@@ -17,6 +17,7 @@ This is the grid based theme for Hugo.
 * Responsive design
 * Google Analytics
 * Thumbnail
+* Share button
 * Structured data(Article and Breadcrumb)
 * Twitter cards
 * OGP
