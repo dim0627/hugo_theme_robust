@@ -1,10 +1,10 @@
 {{ define "title" }}{{ .Title }} - {{ end }}
 
 {{ define "main" }}
-<div class="row">
-  <div class="col-md-8">
+<div class="mrow">
+  <div class="mcol c8">
 
-    <header class="p-page-title">
+    <header class="page-title">
       <h1 class="title">{{ .Title }}</h1>
     </header>
 
@@ -19,8 +19,9 @@
       {{ end }}
     </ul>
 
+    {{ partial "pagination.html" . }}
   </div>
-  <div class="col-md-4">
+  <div class="mcol c4">
     {{ partial "sidebar.html" . }}
   </div>
 </div>

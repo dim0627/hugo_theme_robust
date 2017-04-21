@@ -5,10 +5,9 @@
     {{ with .Site.Params.googlefonts }}
     <link href="{{ . }}" rel="stylesheet">
     {{ else }}
-    <link href="//fonts.googleapis.com/css?family=Noto+Sans:400,700|Montserrat" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
     {{ end }}
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
     <title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
     {{ block "meta" . }}{{ end }}
@@ -25,21 +24,21 @@
     {{ end }}
 
     <header class="l-header">
-      <div class="container">
-        <div class="p-logo">
-          <a href="{{ .Site.BaseURL }}" class="h-logo">{{ .Site.Title }}</a>
+      <div class="l-container">
+        <div class="logo">
+          <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
         </div>
       </div>
     </header>
 
     <main>
-      <div class="container">
+      <div class="l-container">
         {{ block "main" . }}{{ end }}
       </div>
     </main>
 
     <footer class="l-footer">
-      <div class="container">
+      <div class="l-container">
         <p>{{ with .Site.Copyright }}{{ . | safeHTML }}{{ else }}<span class="h-logo">&copy; {{ .Site.Title }}</span>{{ end }}</p>
         <aside>
           <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
@@ -48,8 +47,6 @@
       </div>
     </footer>
 
-    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
