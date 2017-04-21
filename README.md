@@ -57,6 +57,7 @@ disqusShortname = "XYW"
 date = "2016-09-28T17:00:00+09:00"
 title = "Article title here"
 thumbnail = "images/thumbnail.jpg" # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
+toc = true # Optional
 +++
 ```
 
@@ -65,27 +66,11 @@ thumbnail = "images/thumbnail.jpg" # Optional, referenced at `$HUGO_ROOT/static/
 ## Image
 
 ```
-{{% img src="images/image.jpg" %}}
-{{% img src="images/image.jpg" class="right" %}}
-{{% img src="images/image.jpg" class="left" %}}
-{{% img src="images/image.jpg" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+{{% img src="images/image.jpg" w="600" h="400" %}}
+{{% img src="images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
 ```
 
 ![screenshot](https://raw.githubusercontent.com/dim0627/hugo_theme_robust/master/images/include-images.png)
-
-## Clear
-
-Break float.
-
-```
-{{% img src="images/image.jpg" class="right" %}}
-
-brabrabra # Displayed left of the image.
-
-{{% clear %}}
-
-brabrabra # Displayed below of the image.
-```
 
 # Development mode
 

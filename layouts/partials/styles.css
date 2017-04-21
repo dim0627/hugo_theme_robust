@@ -90,15 +90,23 @@ aside.f {
 
 .l-header {
   background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05);
   padding: 1rem 0;
   text-align: center;
 }
 
 .l-footer {
   background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05);
   font-size: .6rem;
   font-weight: 700;
   padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .l-sidebar {
+    margin-top: 4rem;
+  }
 }
 
 .mrow {
@@ -140,6 +148,11 @@ aside.f {
   margin-bottom: 0;
 }
 
+article {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
 article.li {
   background-color: #fff;
   box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05);
@@ -159,8 +172,6 @@ article.li .inner {
 
 article.li .thumb {
   height: 8rem;
-  background-image: url({{ .Site.BaseURL }}images/default.jpg);
-  background-size: cover;
 }
 
 article.li .title {
@@ -202,8 +213,6 @@ article.lism .inner {
 }
 
 article.lism .thumb {
-  background-image: url({{ .Site.BaseURL }}images/default.jpg);
-  background-size: cover;
   width: 5rem;
   height: 5rem;
   float: left;
@@ -218,18 +227,16 @@ article.lism .title {
 article.sn {
   background-color: #fff;
   box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05);
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 }
 
 article.sn .thumb {
-  background-image: url({{ .Site.BaseURL }}images/default.jpg);
-  background-size: cover;
   height: 20rem;
 }
 
 @media (max-width: 768px) {
   article.sn .thumb {
-    height: 12rem;
+    height: 10rem;
   }
 }
 
@@ -266,6 +273,10 @@ article.sn > .article-header .title {
     font-size: 1.4rem;
     line-height: 1.5rem;
   }
+}
+
+article.sn > .article-header .facts {
+  margin-bottom: 1rem;
 }
 
 article.sn > .article-body {
@@ -331,18 +342,31 @@ article.sn > .article-body pre {
   background-color: #333;
   color: #fff;
   line-height: 1rem;
-  margin: 1.5rem 0;
+  margin: 1.5rem -2rem;
   overflow: auto;
 }
 
+@media (max-width: 768px) {
+  article.sn > .article-body pre {
+    margin: 1.5rem -1rem;
+  }
+}
+
 article.sn > .article-body pre > code {
-  padding: 1rem;
+  display: block;
+  padding: 1rem 2rem;
+}
+
+@media (max-width: 768px) {
+  article.sn > .article-body pre > code {
+    padding: 1rem;
+  }
 }
 
 article.sn > .article-body p code {
   background-color: #eceff1;
   color: #333;
-  border-radius: 5px;
+  border-radius: 4px;
   margin: 0 .25rem;
   padding: .375rem;
   white-space: nowrap;
@@ -400,7 +424,7 @@ article.sn > .article-body figcaption {
 }
 
 .sections.sidebar {
-  margin: -2rem 0;
+  margin: -1rem 0;
 }
 
 .sections.footer {
@@ -425,7 +449,7 @@ section.footer {
 
 section.footer > header {
   font-size: .8rem;
-  margin: .25rem 0;
+  margin: .5rem 0;
 }
 
 section.footer > header::before {
@@ -447,14 +471,15 @@ section.footer > header a {
 }
 
 .terms a {
-  display: inline-block;
+  display: block;
+  float: left;
   background-color: #333;
   border-radius: 4px;
   color: #fff;
-  font-size: .8rem;
+  font-size: .7rem;
   margin: .25rem;
-  padding: 0 .5rem;
-  line-height: 1.5rem;
+  padding: 0 .75rem;
+  line-height: 1.75rem;
 }
 
 .paging {
@@ -466,6 +491,7 @@ section.footer > header a {
   display: inline-block;
   background-color: #fff;
   box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05);
+  border-radius: 4px;
   color: #333;
   padding: 0 1rem;
   line-height: 3rem;
@@ -476,6 +502,14 @@ section.footer > header a {
   margin: 1rem 0;
 }
 
+.page-title::after {
+  content: '';
+  display: block;
+  border-bottom: .25rem solid #333;
+  width: 3rem;
+  margin: 1.5rem auto;
+}
+
 .page-title > .title {
   font-size: 1.2rem;
   line-height: 1.5rem;
@@ -484,6 +518,7 @@ section.footer > header a {
 /* Parts:breadcrumb */
 .crumb ol {
   text-overflow: ellipsis;
+  color: #cfd8dc;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -503,7 +538,7 @@ section.footer > header a {
 }
 
 .crumb a {
-  color: #333;
+  color: #cfd8dc;
 }
 
 .crumb i {
@@ -519,7 +554,7 @@ section.footer > header a {
   box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05);
   min-width: 1rem;
   height: 2rem;
-  border-radius: 5px;
+  border-radius: 4px;
   color: #333;
   font-size: .8rem;
   font-weight: 700;
@@ -527,4 +562,77 @@ section.footer > header a {
   text-align: center;
   padding: 0 .5rem;
 }
+
+.adj article.lism {
+  margin-bottom: 1rem;
+}
+
+.adj header {
+  font-weight: 700;
+  font-size: .8rem;
+}
+
+.toc {
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .toc {
+    padding: 0 1rem;
+  }
+}
+
+.toc {
+  margin: 1rem 0;
+}
+
+.toc nav>ul {
+  background-color: #eceff1;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: .8rem;
+  padding: .5rem 1rem;
+  word-break: break-all;
+  list-style: none;
+}
+
+.toc ul {
+  padding: 0;
+}
+
+.toc ul ul {
+  padding-left: 1rem;
+}
+
+.toc ul ul ul {
+  padding-left: 1rem;
+}
+
+.toc li {
+  color: #90a4ae;
+}
+
+.toc ul ul>li {
+  font-weight: 700;
+  margin: .5rem 0;
+  list-style-type: decimal;
+}
+
+.toc ul ul ul>li {
+  list-style-type: disc;
+  font-weight: 500;
+}
+
+.thumb {
+  background-image: url({{ .Site.BaseURL }}images/default.jpg);
+  background-size: cover;
+}
+
+{{ range $p := .Site.Pages }}
+{{ with $p.Params.thumbnail }}
+.thumb-{{ $p.UniqueID }} {
+  background-image: url({{ $.Site.BaseURL }}{{ . }});
+}
+{{ end }}
+{{ end }}
 

@@ -14,6 +14,23 @@
 
     {{ .Render "summary" }}
 
+    <div class="adj">
+      <div class="mrow">
+        {{ with .PrevInSection }}
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          {{ .Render "li_sm" }}
+        </div>
+        {{ end }}
+        {{ with .NextInSection }}
+        <div class="mcol c6">
+          <header>Next Article</header>
+          {{ .Render "li_sm" }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
     {{ template "_internal/disqus.html" . }}
   </div>
   <div class="mcol c4">

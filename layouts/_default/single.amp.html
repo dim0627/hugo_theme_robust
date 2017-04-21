@@ -6,16 +6,23 @@
 {{ end }}
 
 {{ define "main" }}
-<nav class="p-crumb">
-  <ol>
-    <li><a href="{{ .Site.BaseURL }}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-    {{ with .Section }}
-    <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ $.Site.BaseURL }}{{ . | urlize }}/" itemprop="url"><span itemprop="title">{{ . }}</span></a></li>
-    {{ end }}
-    <li class="active">{{ .Title }}</li>
-  </ol>
-</nav>
-
 {{ .Render "summary" }}
+
+<div class="adj">
+  <div class="mrow">
+    {{ with .PrevInSection }}
+    <div class="mcol c6">
+      <header>Previous Article</header>
+      {{ .Render "li_sm" }}
+    </div>
+    {{ end }}
+    {{ with .NextInSection }}
+    <div class="mcol c6">
+      <header>Next Article</header>
+      {{ .Render "li_sm" }}
+    </div>
+    {{ end }}
+  </div>
+</div>
 
 {{ end }}
