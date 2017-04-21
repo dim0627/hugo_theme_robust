@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 1.8rem; line-height: 2rem; margin: 1.5rem 0; }
-h2 { font-size: 1.4rem; line-height: 2rem; margin: 1.5rem 0; }
+h2 { font-size: 1.4rem; line-height: 1.75rem; margin: 1.5rem 0; }
 h3 { font-size: 1.2rem; line-height: 1.5rem; margin: 1.5rem 0; }
 h4, h5, h6 { font-size: 1rem; line-height: 1.5rem; margin: 1.5rem 0; }
 
@@ -362,8 +362,9 @@ article.li.sm .thumb {
   margin: 1.5rem 0;
   padding: 0;
   font-size: .8rem;
-  border: none;
+  border: 2px solid #eceff1;
   border-radius: 0;
+  overflow: auto;
 }
 
 .article-body pre code {

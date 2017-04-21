@@ -1,0 +1,21 @@
+{{ define "title" }}{{ .Title }} - {{ end }}
+
+{{ define "meta" }}
+{{ partial "single_meta.html" . }}
+{{ partial "single_json_ld.html" . }}
+{{ end }}
+
+{{ define "main" }}
+<nav class="p-crumb">
+  <ol>
+    <li><a href="{{ .Site.BaseURL }}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+    {{ with .Section }}
+    <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ $.Site.BaseURL }}{{ . | urlize }}/" itemprop="url"><span itemprop="title">{{ . }}</span></a></li>
+    {{ end }}
+    <li class="active">{{ .Title }}</li>
+  </ol>
+</nav>
+
+{{ .Render "summary" }}
+
+{{ end }}
