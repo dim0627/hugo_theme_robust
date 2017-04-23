@@ -14,6 +14,7 @@ This is the grid based theme for Hugo.
 
 # Features
 
+* [Accelerated Mobile Pages Project](https://www.ampproject.org/) a.k.a AMP supported
 * Responsive design
 * Google Analytics
 * Thumbnail
@@ -48,6 +49,9 @@ disqusShortname = "XYW"
   googlefonts = "https://fonts.googleapis.com/css?family=Lobster|Lato:400,700" # Optional, Include google fonts.
   fontfamily = "Lato,YuGothic,'Hiragino Kaku Gothic Pro',Meiryo,sans-serif" # Optional, Override body font family.
   logofontfamily = "Lobster, cursive" # Optional, Override logo font.
+
+[outputs]
+page = [ "HTML", "AMP" ] # if you want AMP enable.
 ```
 
 # Frontmatter example
