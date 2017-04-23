@@ -14,6 +14,7 @@ This is the grid based theme for Hugo.
 
 # Features
 
+* [Accelerated Mobile Pages Project](https://www.ampproject.org/) a.k.a AMP supported
 * Responsive design
 * Google Analytics
 * Thumbnail
@@ -48,6 +49,9 @@ disqusShortname = "XYW"
   googlefonts = "https://fonts.googleapis.com/css?family=Lobster|Lato:400,700" # Optional, Include google fonts.
   fontfamily = "Lato,YuGothic,'Hiragino Kaku Gothic Pro',Meiryo,sans-serif" # Optional, Override body font family.
   logofontfamily = "Lobster, cursive" # Optional, Override logo font.
+
+[outputs]
+page = [ "HTML", "AMP" ] # if you want AMP enable.
 ```
 
 # Frontmatter example
@@ -57,6 +61,7 @@ disqusShortname = "XYW"
 date = "2016-09-28T17:00:00+09:00"
 title = "Article title here"
 thumbnail = "images/thumbnail.jpg" # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
+toc = true # Optional
 +++
 ```
 
@@ -65,27 +70,11 @@ thumbnail = "images/thumbnail.jpg" # Optional, referenced at `$HUGO_ROOT/static/
 ## Image
 
 ```
-{{% img src="images/image.jpg" %}}
-{{% img src="images/image.jpg" class="right" %}}
-{{% img src="images/image.jpg" class="left" %}}
-{{% img src="images/image.jpg" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+{{% img src="images/image.jpg" w="600" h="400" %}}
+{{% img src="images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
 ```
 
 ![screenshot](https://raw.githubusercontent.com/dim0627/hugo_theme_robust/master/images/include-images.png)
-
-## Clear
-
-Break float.
-
-```
-{{% img src="images/image.jpg" class="right" %}}
-
-brabrabra # Displayed left of the image.
-
-{{% clear %}}
-
-brabrabra # Displayed below of the image.
-```
 
 # Development mode
 
