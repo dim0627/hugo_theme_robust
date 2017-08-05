@@ -4,6 +4,6 @@ thumbnail = ""
 tags = []
 categories = []
 date = "{{ .Date }}"
-title: "{{ replace .TranslationBaseName "-" " " | title }}"
+title = "{{ replace .TranslationBaseName "-" " " | title }}"
 description = ""
 +++
