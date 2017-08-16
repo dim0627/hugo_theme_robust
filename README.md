@@ -39,6 +39,7 @@ $ git clone https://github.com/dim0627/hugo_theme_robust.git
 ```
 baseurl = "https://example.com/"
 title = "SiteTitle"
+theme = "hugo_theme_robust"
 
 googleAnalytics = "UA-XXXXXXXX-XX" # Optional
 disqusShortname = "XYW"
