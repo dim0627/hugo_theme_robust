@@ -1,1 +1,3 @@
-{{ partial "taxonomy.html" (dict "context" . "key" "categories" "value" .Site.Taxonomies.categories) }}
+{{ with .Site.Taxonomies.categories }}
+{{ partial "taxonomy.html" (dict "context" . "key" "categories" "value" .) }}
+{{ end }}
