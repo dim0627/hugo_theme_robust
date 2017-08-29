@@ -17,6 +17,7 @@
     {{ block "meta" . }}{{ end }}
     <style amp-custom>
       {{ replaceRE " +" " " (replaceRE "\n" "" (partial "styles.css" .)) | safeCSS }}
+      {{ replaceRE " +" " " (replaceRE "\n" "" (partial "custom.css" .)) | safeCSS }}
       {{ with .Site.Params.fontfamily }} body { font-family: {{ . | safeCSS }}; } {{ end }}
       {{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}
       .l-container { max-width: 40rem; margin: 0 auto; }
