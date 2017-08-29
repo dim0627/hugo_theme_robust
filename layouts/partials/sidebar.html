@@ -1,19 +1,22 @@
 <aside class="l-sidebar">
 
   <div class="sections sidebar">
-    <section class="sidebar">
-      <header>LATESTS</header>
-      <div>
-        <div class="articles sm">
-          {{ range $i, $p := (first 10 .Site.Pages) }}
-          {{ .Render "li_sm" }}
-          {{ end }}
-        </div>
-      </div>
-    </section>
+    {{ $order := .Site.Params.SidebarOrder | default ( slice "latests" "categories" "tags" ) }}
 
-    {{ range $key, $value := .Site.Taxonomies }}
-    {{ partial "taxonomy.html" (dict "context" . "key" $key "value" $value) }}
+    {{ range $i, $key := $order }}
+
+    {{ if eq ( $key | lower ) "latests" }}
+    {{ partial "latests.html" $ }}
+    {{ end }}
+
+    {{ if eq ( $key | lower ) "categories" }}
+    {{ partial "taxonomy.html" (dict "context" $ "key" $key "value" $.Site.Taxonomies.categories) }}
+    {{ end }}
+
+    {{ if eq ( $key | lower ) "tags" }}
+    {{ partial "taxonomy.html" (dict "context" $ "key" $key "value" $.Site.Taxonomies.tags) }}
+    {{ end }}
+
     {{ end }}
   </div>
 
