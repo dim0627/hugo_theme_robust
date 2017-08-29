@@ -1,10 +1,22 @@
 <aside class="l-sidebar">
 
   <div class="sections sidebar">
-    {{ partial "latests.html" . }}
+    {{ $order := .Site.Params.SidebarOrder | default ( slice "latests" "categories" "tags" ) }}
 
-    {{ range $key, $value := .Site.Taxonomies }}
-    {{ partial "taxonomy.html" (dict "context" . "key" $key "value" $value) }}
+    {{ range $i, $key := $order }}
+
+    {{ if eq ( $key | lower ) "latests" }}
+    {{ partial "latests.html" $ }}
+    {{ end }}
+
+    {{ if eq ( $key | lower ) "categories" }}
+    {{ partial "taxonomy.html" (dict "context" $ "key" $key "value" $.Site.Taxonomies.categories) }}
+    {{ end }}
+
+    {{ if eq ( $key | lower ) "tags" }}
+    {{ partial "taxonomy.html" (dict "context" $ "key" $key "value" $.Site.Taxonomies.tags) }}
+    {{ end }}
+
     {{ end }}
   </div>
 
