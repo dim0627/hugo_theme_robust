@@ -49,6 +49,7 @@ disqusShortname = "XYW"
   googlefonts = "https://fonts.googleapis.com/css?family=Lobster|Lato:400,700" # Optional, Include google fonts.
   fontfamily = "Lato,YuGothic,'Hiragino Kaku Gothic Pro',Meiryo,sans-serif" # Optional, Override body font family.
   logofontfamily = "Lobster, cursive" # Optional, Override logo font.
+  sidebarOrder = [ "Latest", "Categories", "Tags" ]
 
 [outputs]
 page = [ "HTML", "AMP" ] # if you want AMP enable.
