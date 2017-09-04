@@ -218,7 +218,7 @@ article.lism .inner {
   display: table-cell;
   vertical-align: middle;
   height: 5rem;
-  padding-left: .5rem;
+  padding: 0 .75rem;
 }
 
 article.lism .thumb {
@@ -229,7 +229,7 @@ article.lism .thumb {
 
 article.lism .title {
   font-weight: 700;
-  line-height: 1.25rem;
+  font-size: .8rem;
   margin-bottom: .25rem;
 }
 
