@@ -1,3 +1,5 @@
+{{ with .Site.Params.Description }}
 <div class="description">
-{{ .Site.Params.Description | markdownify}}
+  {{ . | markdownify}}
 </div>
+{{ end }}
