@@ -45,6 +45,7 @@ googleAnalytics = "UA-XXXXXXXX-XX" # Optional
 disqusShortname = "XYW"
 
 [params]
+  description = "This is site description"
   dateformat = "Jan 2, 2006" # Optional
   # Fonts settings.
   googlefonts = "https://fonts.googleapis.com/css?family=Lobster|Lato:400,700" # Optional, Include google fonts.
