@@ -103,6 +103,11 @@ aside.f {
   padding: 1rem 0;
 }
 
+.description {
+  padding: 1rem 0;
+  font-size: .8rem;
+}
+
 @media (max-width: 768px) {
   .l-sidebar {
     margin-top: 4rem;
