@@ -95,17 +95,17 @@ aside.f {
   text-align: center;
 }
 
+.l-header .description {
+  margin-top: .5rem;
+  font-size: .8rem;
+}
+
 .l-footer {
   background-color: #fff;
   box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05);
   font-size: .6rem;
   font-weight: 700;
   padding: 1rem 0;
-}
-
-.description {
-  padding: 1rem 0;
-  font-size: .8rem;
 }
 
 @media (max-width: 768px) {
@@ -631,9 +631,67 @@ section.footer > header a {
   font-weight: 500;
 }
 
+.author {
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05);
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.author .author-thumb {
+  margin: 0 auto 1rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background-color: #eceff1;
+  background-size: cover;
+  background-position: center;
+}
+
+.author .author-name {
+  margin-bottom: .5rem;
+  font-weight: 700;
+}
+
+.author .author-facts {
+  margin-bottom: 1rem;
+}
+
+.author .author-facts li {
+  display: inline;
+}
+
+.author .author-facts li a {
+  display: inline-block;
+  background-color: #eceff1;
+  width: 1.75rem;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  text-align: center;
+  color: #333;
+  font-size: .8rem;
+  border-radius: 2px;
+}
+
+.author .author-facts li a:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+.author .author-description {
+  text-align: left;
+  font-size: .8rem;
+}
+
+.author .author-description p {
+  margin: .5rem 0;
+}
+
 .thumb {
   background-image: url({{ .Site.BaseURL }}images/default.jpg);
   background-size: cover;
+  background-position: center;
 }
 
 {{ range $p := .Site.Pages }}
