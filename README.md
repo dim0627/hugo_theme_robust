@@ -52,6 +52,14 @@ disqusShortname = "XYW"
   fontfamily = "Lato,YuGothic,'Hiragino Kaku Gothic Pro',Meiryo,sans-serif" # Optional, Override body font family.
   logofontfamily = "Lobster, cursive" # Optional, Override logo font.
 
+[params.author]
+  thumbnail = "images/author.jpg"
+  name = "John Doe"
+  description = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p><p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  facebook = "https://www.facebook.com/daisuke.tsuji.735"
+  twitter = "https://twitter.com/dim0627"
+  github = "https://github.com/dim0627"
+
 [outputs]
 page = [ "HTML", "AMP" ] # if you want AMP enable.
 ```
