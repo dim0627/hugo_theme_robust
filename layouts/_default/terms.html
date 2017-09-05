@@ -8,12 +8,12 @@
       <h1 class="title">{{ .Title }}</h1>
     </header>
 
-    <ul class="p-terms">
+    <ul class="terms">
       {{ $data := .Data }}
       {{ range $key, $value := .Data.Terms }}
       <li>
         <h2 class="terms-title">
-          <a href="{{ $.Site.BaseURL }}{{ $data.Plural }}/{{ $key | urlize }}">{{ $key }}</a> ({{ len $value }})
+          <a href="{{ $.Site.BaseURL }}{{ $data.Plural }}/{{ $key | urlize }}">{{ $key }} ({{ len $value }})</a>
         </h2>
       </li>
       {{ end }}
