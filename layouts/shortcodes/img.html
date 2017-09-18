@@ -1,5 +1,5 @@
 <figure{{ if .Get "class" }} class="{{ .Get "class" }}"{{ end }}>
-  <img src="{{ $.Site.BaseURL }}{{ .Get "src" }}" alt="{{ .Get "caption" }}">
+  <img src="{{ $.Site.BaseURL }}{{ .Get "src" }}" alt="{{ .Get "caption" }}"{{ with (.Get "w") }} width="{{ . }}"{{ end }}{{ with (.Get "h") }} height="{{ . }}"{{ end }}>
   {{ if .Get "caption" }}
   <figcaption>
     {{ if .Get "href" }}
