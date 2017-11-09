@@ -2,7 +2,7 @@
   <header>{{ .key | upper }}</header>
   <div>
     <ul class="terms">
-      {{ range first 10 .value.ByCount }}<li><a href="{{ $.baseurl}}{{ $.key }}/{{ .Name | urlize }}">{{ .Name }}</a></li>{{ end }}
+      {{ range $key, $value := first 10 .value.ByCount }}<li><a href="{{ $.baseurl}}{{ $.key }}/{{ .Name | urlize }}">{{ .Name }} ({{ $value.Count }})</a></li>{{ end }}
     </ul>
   </div>
 </section>
