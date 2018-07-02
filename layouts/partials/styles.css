@@ -403,6 +403,7 @@ article.sn > .article-body figure {
   margin: 1.5rem 0;
 }
 
+article.sn > .article-body img,
 article.sn > .article-body figure img,
 article.sn > .article-body figure amp-img {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
