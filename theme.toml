@@ -5,7 +5,7 @@ description = "Grid based theme for Hugo."
 homepage = "https://github.com/dim0627/hugo_theme_robust"
 tags = ["blog"]
 features = ["responsive", "thumbnail", "grid", "syntax highlight", "structured data", "ogp", "twitter cards"]
-min_version = 0.20.2
+min_version = 0.42.2
 
 [author]
   name = "Daisuke Tsuji"
