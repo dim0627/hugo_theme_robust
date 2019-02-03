@@ -1,3 +1,7 @@
+```
+This theme is no longer maintained.
+```
+
 # What is this.
 
 This is the grid based theme for Hugo.
