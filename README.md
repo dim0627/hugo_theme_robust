@@ -1,6 +1,4 @@
-```
-This theme is no longer maintained.
-```
+This theme is maintained by [Ress](https://github.com/ress997).
 
 # What is this.
 
