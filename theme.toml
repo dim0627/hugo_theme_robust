@@ -8,6 +8,6 @@ features = ["responsive", "thumbnail", "grid", "syntax highlight", "structured d
 min_version = 0.53
 
 [author]
-  name = "Daisuke Tsuji"
-  homepage = "https://yet.unresolved.xyz/"
+name = "Daisuke Tsuji"
+homepage = "https://yet.unresolved.xyz/"
 
