@@ -16,11 +16,11 @@
     <title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
     {{ block "meta" . }}{{ end }}
     <style amp-custom>
-      {{ partial "styles.css" . | safeCSS }}
-      {{ partial "custom.css" . | safeCSS }}
-      {{ with .Site.Params.fontfamily }} body { font-family: {{ . | safeCSS }}; } {{ end }}
-      {{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}
-      .l-container { max-width: 40rem; margin: 0 auto; }
+{{ partial "styles.css" . | safeCSS }}
+{{ partial "custom.css" . | safeCSS }}
+{{ with .Site.Params.fontfamily }} body { font-family: {{ . | safeCSS }}; } {{ end }}
+{{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}
+.l-container { max-width: 40rem; margin: 0 auto; }
     </style>
   </head>
 
