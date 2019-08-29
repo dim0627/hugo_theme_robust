@@ -7,7 +7,6 @@
 
 <link rel="apple-touch-icon" href="{{ .Site.BaseURL }}images/logo.png">
 
-<link rel="canonical" href="{{ .Permalink }}">
 {{ range .AlternativeOutputFormats }}
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type | html }}" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title | safeHTML }}">
 {{ end }}
