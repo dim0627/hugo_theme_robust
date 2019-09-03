@@ -4,7 +4,7 @@
   <div>
     <div class="author">
       {{ with .thumbnail }}
-      <div class="author-thumb" style="background-image: url({{ $.Site.BaseURL }}{{ . }});"></div>
+      <div class="author-thumb" style="background-image: url({{ . | absURL }});"></div>
       {{ end }}
       <div class="author-name">{{ .name }}</div>
       <ul class="author-facts">
