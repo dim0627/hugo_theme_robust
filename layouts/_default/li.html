@@ -14,7 +14,7 @@
         {{ end }}
       </ul>
 
-      <div class="summary">{{ .Summary }}</div>
+      <div class="summary">{{ plainify .Summary | safeHTML }}</div>
     </div>
   </a>
 </article>
