@@ -2,6 +2,7 @@
 <html>
   <head>
     {{ partial "meta.html" . }}
+    <link rel="canonical" href="{{ .Permalink }}">
     {{ with .Site.Params.googlefonts }}
     <link href="{{ . }}" rel="stylesheet">
     {{ else }}
