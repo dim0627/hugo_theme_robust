@@ -1,0 +1,17 @@
+name: TEST
+on: [push, pull_request]
+jobs:
+  build:
+    name: Build Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test build with hugoBasicExample
+        run: |
+          git clone -b master --single-branch --depth=1 https://github.com/gohugoio/hugoBasicExample.git ~/tmp
+          cd ~/tmp
+          VERSION=$(curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+          wget "https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz" -O hugo.tar.gz
+          tar xzf hugo.tar.gz hugo
+          rm -rf hugo.tar.gz
+          git clone -b master --single-branch --depth=1 https://github.com/dim0627/hugo_theme_robust.git themes/robust
+          ./hugo --theme robust --minify
