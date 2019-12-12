@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
     {{ partial "meta.html" . }}
+    {{ block "meta" . }}{{ end }}
+
     <link rel="canonical" href="{{ .Permalink }}">
     {{ with .Site.Params.googlefonts }}
     <link href="{{ . }}" rel="stylesheet">
@@ -10,8 +14,6 @@
     {{ end }}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
-    {{ block "meta" . }}{{ end }}
     <style>
 {{ partial "styles.css" . | safeCSS }}
 {{ partial "custom.css" . | safeCSS }}
