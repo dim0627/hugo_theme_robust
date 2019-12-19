@@ -50,6 +50,8 @@ ul, ol {
 
 table {
   border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
 }
 
 th, td {
