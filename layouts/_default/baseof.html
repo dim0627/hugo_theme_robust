@@ -15,7 +15,21 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <style>
-{{ partial "styles.css" . | safeCSS }}
+{{ with resources.Get "styles.scss" | toCSS | minify }}{{ .Content | safeCSS }}{{ end }}
+
+.thumb {
+  background-image: url("{{ "images/default.jpg" | absURL }}");
+  background-size: cover;
+  background-position: center;
+}
+{{ range $p := .Site.RegularPages }}
+  {{ with $p.Params.thumbnail }}
+  .thumb-{{ $p.File.UniqueID }} {
+    background-image: url("{{ . | absURL }}");
+  }
+  {{ end }}
+{{ end }}
+
 {{ partial "custom.css" . | safeCSS }}
 {{ with .Site.Params.fontfamily }} body { font-family: {{ . | safeCSS }}; } {{ end }}
 {{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}

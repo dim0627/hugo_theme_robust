@@ -6,6 +6,8 @@ This is the grid based theme for Hugo.
 
 [Hugo :: A fast and modern static website engine](https://gohugo.io/)
 
+**You need the Hugo `extended` version.**
+
 ## PC View
 
 ![screenshot](https://raw.githubusercontent.com/dim0627/hugo_theme_robust/master/images/screenshot.png)
