@@ -691,17 +691,3 @@ section.footer > header a {
   margin: .5rem 0;
 }
 
-.thumb {
-  background-image: url({{ .Site.BaseURL }}images/default.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-{{ range $p := .Site.RegularPages }}
-{{ with $p.Params.thumbnail }}
-.thumb-{{ $p.File.UniqueID }} {
-  background-image: url({{ . | absURL }});
-}
-{{ end }}
-{{ end }}
-
