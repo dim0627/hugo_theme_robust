@@ -28,6 +28,7 @@ This is the grid based theme for Hugo.
 * OGP
 * Disqus
 * Syntax Highlight
+* Show `IsDraft`.
 
 ## Installation
 
@@ -101,7 +102,6 @@ env HUGO_ENV="DEV" hugo server --watch --buildDrafts=true --buildFuture=true -t 
 This mode is
 
 * Not show Google Analytics tags.
-* Show `IsDraft`.
 * Show `WordCount`.
 
 And set `{{ if ne (getenv "HUGO_ENV") "DEV" }} Set elements here. {{ end }}` if you want to place only in a production environment.

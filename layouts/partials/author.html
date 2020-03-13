@@ -1,19 +1,17 @@
 {{ with .Site.Params.author }}
 <section class="sidebar">
   <header>AUTHOR</header>
-  <div>
-    <div class="author">
-      {{ with .thumbnail }}
-      <div class="author-thumb" style="background-image: url({{ . | absURL }});"></div>
-      {{ end }}
-      <div class="author-name">{{ .name }}</div>
-      <ul class="author-facts">
-        {{ with .facebook }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>{{ end }}
-        {{ with .twitter }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>{{ end }}
-        {{ with .github }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a></li>{{ end }}
-      </ul>
-      <div class="author-description">{{ .description | safeHTML }}</div>
-    </div>
+  <div class="author">
+    {{ with .thumbnail }}
+    <div class="author-thumb" style="background-image: url({{ . | absURL }});"></div>
+    {{ end }}
+    <div class="author-name">{{ .name }}</div>
+    <ul class="author-facts">
+      {{ with .facebook }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>{{ end }}
+      {{ with .twitter }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>{{ end }}
+      {{ with .github }}<li><a href="{{ . }}" rel="nofollow" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a></li>{{ end }}
+    </ul>
+    <div class="author-description">{{ .description | safeHTML }}</div>
   </div>
 </section>
 {{ end }}

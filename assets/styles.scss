@@ -64,19 +64,11 @@ tr {
 }
 
 /* Layouts */
-main,
-aside {
+main, aside {
   display: block;
 }
-
-main { padding: 1rem 0 3rem 0; }
-aside.h { padding: 3rem 0; }
-
-main.f,
-aside.f {
-  background-color: #333;
-  border-top: 2px dashed #fff;
-  border-bottom: 2px dashed #fff;
+main {
+  padding: 1rem 0 3rem 0;
 }
 
 .l-container {
@@ -84,22 +76,22 @@ aside.f {
   max-width: 68rem;
   margin: 0 auto;
   padding: 0 1rem;
-}
 
-.l-container.thin {
-  max-width: 44rem;
+  &.thin {
+    max-width: 44rem;
+  }
 }
 
 .l-header {
   background-color: #fff;
-  box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px rgba(63, 63, 68, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
   padding: 1rem 0;
   text-align: center;
-}
 
-.l-header .description {
-  margin-top: .5rem;
-  font-size: .8rem;
+  .description {
+    margin-top: .5rem;
+    font-size: .8rem;
+  }
 }
 
 .l-footer {
@@ -110,12 +102,17 @@ aside.f {
   padding: 1rem 0;
 }
 
+.l-sidebar {
+    margin: -1rem 0;
+}
+
 @media (max-width: 768px) {
   .l-sidebar {
     margin-top: 4rem;
   }
 }
 
+// grid
 .mrow {
   margin: 0 -1rem;
   overflow: hidden;
@@ -434,43 +431,37 @@ article.sn > .article-body figcaption {
   font-size: .7rem;
 }
 
-.sections.sidebar {
-  margin: -1rem 0;
-}
+section {
+  &.sidebar {
+    margin: 2rem 0;
 
-.sections.footer {
-  margin: -1rem 0;
-}
+    > header {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+  }
 
-section.sidebar {
-  margin: 2rem 0;
-}
+  &.footer {
+    margin: 1rem 0;
 
-section.sidebar > header {
-  font-size: .8rem;
-  font-weight: 700;
-  letter-spacing: 4px;
-  text-align: center;
-  margin: 1.5rem 0;
-}
+    > header {
+      font-size: .8rem;
+      margin: .5rem 0;
 
-section.footer {
-  margin: 1rem 0;
-}
+      &::before {
+        content: "- ";
+      }
 
-section.footer > header {
-  font-size: .8rem;
-  margin: .5rem 0;
-}
-
-section.footer > header::before {
-  content: "- ";
-}
-
-section.footer > header a {
-  font-weight: 700;
-  color: #333;
-  text-decoration: underline;
+      a {
+        font-weight: 700;
+        color: #333;
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .terms {
@@ -493,19 +484,19 @@ section.footer > header a {
   line-height: 1.75rem;
 }
 
+// Pagination
 .paging {
   text-align: center;
   padding: 1rem 0;
-}
-
-.paging a {
-  display: inline-block;
-  background-color: #fff;
-  box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05);
-  border-radius: 4px;
-  color: #333;
-  padding: 0 1rem;
-  line-height: 3rem;
+  a {
+    display: inline-block;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05);
+    border-radius: 4px;
+    color: #333;
+    padding: 0 1rem;
+    line-height: 3rem;
+  }
 }
 
 .page-title {

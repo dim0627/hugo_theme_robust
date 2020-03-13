@@ -7,10 +7,14 @@
 
       <ul class="facts sm">
         <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="{{ .Date.Format "2007-01-02T15:04:05JST" }}">{{ .Date.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time></li>
-        {{ with .Section }}<li><i class="fas fa-bookmark" aria-hidden="true"></i>{{ . | upper }}</li>{{ end }}
+        {{ with .Section }}
+        <li><i class="fas fa-bookmark" aria-hidden="true"></i>{{ . | upper }}</li>
+        {{ end }}
         {{ if eq (getenv "HUGO_ENV") "DEV" }}
         <li>{{ .WordCount }} Words</li>
-        {{ if .IsDraft }}<li style="color: #2196f3;">DRAFT</li>{{ end }}
+        {{ end }}
+        {{ if .Draft }}
+        <li style="color: #2196f3;">DRAFT</li>
         {{ end }}
       </ul>
 
