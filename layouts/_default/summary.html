@@ -7,11 +7,17 @@
 
     <ul class="facts">
       <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="{{ .Date.Format "2006-01-02T15:04:05JST" }}">{{ .Date.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time></li>
-      {{ if ne .Date .Lastmod }}<li><i class="fas fa-sync" aria-hidden="true"></i><time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05JST" }}">{{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time></li>{{ end }}
-      {{ with .Section }}<li><i class="fas fa-bookmark" aria-hidden="true"></i><a href="{{ $.Site.BaseURL }}{{ . | urlize }}/">{{ . | upper }}</a></li>{{ end }}
+      {{ if ne .Date .Lastmod }}
+      <li><i class="fas fa-sync" aria-hidden="true"></i><time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05JST" }}">{{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time></li>
+      {{ end }}
+      {{ with .Section }}
+      <li><i class="fas fa-bookmark" aria-hidden="true"></i><a href="{{ $.Site.BaseURL }}{{ . | urlize }}/">{{ . | upper }}</a></li>
+      {{ end }}
       {{ if eq (getenv "HUGO_ENV") "DEV" }}
       <li>{{ .WordCount }} Words</li>
-      {{ if .IsDraft }}<li style="color: #2196f3;">DRAFT</li>{{ end }}
+      {{ end }}
+      {{ if .Draft }}
+      <li style="color: #2196f3;">DRAFT</li>
       {{ end }}
     </ul>
 
@@ -31,17 +37,15 @@
     {{ partial "share.html" . }}
 
     <section class="footer">
-      <div>
-        <nav class="crumb">
-          <ol>
-            <li><a href="{{ .Site.BaseURL }}"><i class="fas fa-home" aria-hidden="true"></i>TOP</a></li>
-            {{ with .Section }}
-            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ $.Site.BaseURL }}{{ . | urlize }}/" itemprop="url"><span itemprop="title">{{ . | upper }}</span></a></li>
-            {{ end }}
-            <li class="active">{{ .Title }}</li>
-          </ol>
-        </nav>
-      </div>
+      <nav class="crumb">
+        <ol>
+          <li><a href="{{ .Site.BaseURL }}"><i class="fas fa-home" aria-hidden="true"></i>TOP</a></li>
+          {{ with .Section }}
+          <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ $.Site.BaseURL }}{{ . | urlize }}/" itemprop="url"><span itemprop="title">{{ . | upper }}</span></a></li>
+          {{ end }}
+          <li class="active">{{ .Title }}</li>
+        </ol>
+      </nav>
     </section>
 
     {{ $params := .Params }}
@@ -51,13 +55,11 @@
       <header>
         <a href="{{ $.Site.BaseURL }}{{ $key | urlize }}/">{{ $key | upper }}</a>
       </header>
-      <div>
-        <ul class="terms">
-          {{ range (index $params $key) }}
-          <li><a href="{{ $.Site.BaseURL }}{{ $key | urlize }}/{{ . | urlize }}/">{{ . }}</a></li>
-          {{ end }}
-        </ul>
-      </div>
+      <ul class="terms">
+        {{ range (index $params $key) }}
+        <li><a href="{{ $.Site.BaseURL }}{{ $key | urlize }}/{{ . | urlize }}/">{{ . }}</a></li>
+        {{ end }}
+      </ul>
     </section>
     {{ end }}
     {{ end }}

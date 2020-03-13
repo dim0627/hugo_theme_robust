@@ -7,6 +7,7 @@
     {{ block "meta" . }}{{ end }}
 
     <link rel="canonical" href="{{ .Permalink }}">
+
     {{ with .Site.Params.googlefonts }}
     <link href="{{ . }}" rel="stylesheet">
     {{ else }}
@@ -24,15 +25,15 @@
 }
 {{ range $p := .Site.RegularPages }}
   {{ with $p.Params.thumbnail }}
-  .thumb-{{ $p.File.UniqueID }} {
-    background-image: url("{{ . | absURL }}");
-  }
+.thumb-{{ $p.File.UniqueID }} {
+  background-image: url("{{ . | absURL }}");
+}
   {{ end }}
 {{ end }}
 
-{{ partial "custom.css" . | safeCSS }}
 {{ with .Site.Params.fontfamily }} body { font-family: {{ . | safeCSS }}; } {{ end }}
 {{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}
+{{ partial "custom.css" . | safeCSS }}
     </style>
 {{ if and .Site.GoogleAnalytics (ne (getenv "HUGO_ENV") "DEV") }}
 <script async src='https://www.google-analytics.com/analytics.js'></script>
@@ -45,17 +46,25 @@ ga('send', 'pageview');
   </head>
   <body>
     <header class="l-header">
-      <div class="l-container">
-        <div class="logo">
+        <h1 class="logo">
           <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-        </div>
-        {{ partial "description.html" . }}
-      </div>
+        </h1>
+        {{ with .Site.Params.Description }}
+        <span class="description">
+          {{ . | markdownify}}
+        </span>
+        {{ end }}
     </header>
 
     <main>
       <div class="l-container">
-        {{ block "main" . }}{{ end }}
+        <div class="mrow">
+        <div class="mcol c8">
+          {{ block "main" . }}{{ end }}
+        </div>
+        <div class="mcol c4">
+          {{ partial "sidebar.html" . }}
+        </div>
       </div>
     </main>
 

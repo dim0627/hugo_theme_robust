@@ -1,10 +1,8 @@
 <section class="sidebar">
   <header>LATESTS</header>
-  <div>
-    <div class="articles sm">
-      {{ range $i, $p := (first 10 .Site.RegularPages) }}
-      {{ .Render "li_sm" }}
-      {{ end }}
-    </div>
+  <div class="articles sm">
+    {{ range $i, $p := (first 10 .Site.RegularPages) }}
+    {{ .Render "li_sm" }}
+    {{ end }}
   </div>
 </section>

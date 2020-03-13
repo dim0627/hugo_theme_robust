@@ -1,31 +1,56 @@
 {{ define "title" }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ end }}
 
 {{ define "main" }}
-<div class="mrow">
-  <div class="mcol c8">
-
-    {{ if not .IsHome }}
-    <header class="page-title">
-      <h1 class="title">{{ .Title }}</h1>
-    </header>
-    {{ end }}
-
-    <div class="articles">
-      <div class="mrow">
-        {{ $pctx := . }}
-        {{ if .IsHome }}{{ $pctx = .Site }}{{ end }}
-        {{ $paginator := .Paginate $pctx.RegularPages }}
-        {{ range $paginator.Pages }}
-        <div class="mcol c6">{{ .Render "li" }}</div>
-        {{ end }}
-      </div>
-    </div>
-
-    {{ partial "pagination.html" . }}
-  </div>
-  <div class="mcol c4">
-    {{ partial "sidebar.html" . }}
-  </div>
-</div>
+{{ if not .IsHome }}
+<header class="page-title">
+  <h1 class="title">{{ .Title }}</h1>
+</header>
 {{ end }}
 
+<div class="articles">
+  <div class="mrow">
+
+    {{ $pctx := . }}
+    {{ if .IsHome }}{{ $pctx = .Site }}{{ end }}
+    {{ $paginator := .Paginate $pctx.RegularPages }}
+    {{ range $paginator.Pages }}
+    <div class="mcol c6">
+      <article class="li">
+        <a href="{{ .Permalink }}">
+          <div class="thumb thumb-{{ .File.UniqueID }}"></div>
+
+          <div class="inner">
+            <h2 class="title">{{ .Title }}</h2>
+
+            <ul class="facts">
+              <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="{{ .Date.Format "2006-01-02T15:04:05JST" }}">{{ .Date.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time></li>
+              {{ with .Section }}<li><i class="fas fa-bookmark" aria-hidden="true"></i>{{ . | upper }}</li>{{ end }}
+              {{ if eq (getenv "HUGO_ENV") "DEV" }}
+              <li>{{ .WordCount }} Words</li>
+              {{ end }}
+              {{ if .Draft }}
+              <li style="color: #2196f3;">DRAFT</li>
+              {{ end }}
+            </ul>
+
+            <div class="summary">{{ plainify .Summary | safeHTML }}</div>
+          </div>
+        </a>
+      </article>
+    </div>
+    {{ end }}
+
+  </div>
+</div>
+
+{{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+<nav class="paging">
+  {{ if .Paginator.HasPrev }}
+  <a href="{{ .Paginator.Prev.URL }}" rel="prev">Prev</a>
+  {{ end }}
+  {{ if .Paginator.HasNext }}
+  <a href="{{ .Paginator.Next.URL }}" rel="next">Next</a>
+  {{ end }}
+</nav>
+{{ end }}
+{{ end }}

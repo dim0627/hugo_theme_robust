@@ -8,21 +8,18 @@
 {{ define "main" }}
 {{ .Render "summary" }}
 
-<div class="adj">
-  <div class="mrow">
-    {{ with .PrevInSection }}
-    <div class="mcol c6">
-      <header>Previous Article</header>
-      {{ .Render "li_sm" }}
-    </div>
-    {{ end }}
-    {{ with .NextInSection }}
+<div class="adj mrow">
     <div class="mcol c6">
       <header>Next Article</header>
+    {{ with .NextInSection }}
       {{ .Render "li_sm" }}
-    </div>
     {{ end }}
-  </div>
+    </div>
+    <div class="mcol c6">
+      <header>Previous Article</header>
+    {{ with .PrevInSection }}
+      {{ .Render "li_sm" }}
+    {{ end }}
+    </div>
 </div>
-
 {{ end }}
