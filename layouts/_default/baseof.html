@@ -63,7 +63,12 @@ ga('send', 'pageview');
           {{ block "main" . }}{{ end }}
         </div>
         <div class="mcol c4">
-          {{ partial "sidebar.html" . }}
+          <aside class="l-sidebar">
+            {{ partial "author.html" . }}
+            {{ partial "latests.html" . }}
+            {{ partial "categories.html" . }}
+            {{ partial "tags.html" . }}
+          </aside>
         </div>
       </div>
     </main>
