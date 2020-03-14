@@ -1,28 +1,19 @@
 {{ define "title" }}{{ .Title }} - {{ end }}
 
 {{ define "main" }}
-<div class="mrow">
-  <div class="mcol c8">
+<header class="page-title">
+  <h1 class="title">{{ .Title }}</h1>
+</header>
 
-    <header class="page-title">
-      <h1 class="title">{{ .Title }}</h1>
-    </header>
-
-    <ul class="terms">
-      {{ $data := .Data }}
-      {{ range $key, $value := .Data.Terms }}
-      <li>
-        <h2 class="terms-title">
-          <a href="{{ $.Site.BaseURL }}{{ $data.Plural }}/{{ $key | urlize }}">{{ $key }} ({{ len $value }})</a>
-        </h2>
-      </li>
-      {{ end }}
-    </ul>
-
-  </div>
-  <div class="mcol c4">
-    {{ partial "sidebar.html" . }}
-  </div>
-</div>
+<ul class="terms">
+  {{ $data := .Data }}
+  {{ range $key, $value := .Data.Terms }}
+  <li>
+    <h2 class="terms-title">
+      <a href="{{ $.Site.BaseURL }}{{ $data.Plural }}/{{ $key | urlize }}">{{ $key }} ({{ len $value }})</a>
+    </h2>
+  </li>
+  {{ end }}
+</ul>
 {{ end }}
 
