@@ -517,36 +517,6 @@ section {
   line-height: 1.5rem;
 }
 
-/* Parts:breadcrumb */
-.crumb ol {
-  text-overflow: ellipsis;
-  color: #cfd8dc;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.crumb li {
-  display: inline;
-  font-size: .8rem;
-}
-
-.crumb li::after {
-  content: '›';
-  margin: 0 .25rem 0 .5rem;
-}
-
-.crumb li:last-child::after {
-  content: '';
-}
-
-.crumb a {
-  color: #cfd8dc;
-}
-
-.crumb i {
-  margin-right: .5em;
-}
-
 .share {
   padding: 0;
 }
