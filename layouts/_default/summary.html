@@ -36,18 +36,6 @@
 
     {{ partial "share.html" . }}
 
-    <section class="footer">
-      <nav class="crumb">
-        <ol>
-          <li><a href="{{ .Site.BaseURL }}"><i class="fas fa-home" aria-hidden="true"></i>TOP</a></li>
-          {{ with .Section }}
-          <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ $.Site.BaseURL }}{{ . | urlize }}/" itemprop="url"><span itemprop="title">{{ . | upper }}</span></a></li>
-          {{ end }}
-          <li class="active">{{ .Title }}</li>
-        </ol>
-      </nav>
-    </section>
-
     {{ $params := .Params }}
     {{ range $key, $value := $.Site.Taxonomies }}
     {{ if isset $params $key }}
