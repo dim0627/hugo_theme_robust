@@ -5,13 +5,20 @@ jobs:
     name: Build Test
     runs-on: ubuntu-latest
     steps:
-      - name: Test build with hugoBasicExample
+      - name: Download hugoBasicExample
         run: |
           git clone -b master --single-branch --depth=1 https://github.com/gohugoio/hugoBasicExample.git ~/tmp
-          cd ~/tmp
+      - name: Download hugo binary
+        rnn: |
           VERSION=$(curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
           wget "https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz" -O hugo.tar.gz
           tar xzf hugo.tar.gz hugo
           rm -rf hugo.tar.gz
-          git clone -b master --single-branch --depth=1 https://github.com/dim0627/hugo_theme_robust.git themes/robust
+        working-directory: ~/tmp
+      - uses: actions/checkout@v2
+        with:
+          path: ~/tmp/themes/robust
+      - name: Build
+        run: |
           ./hugo --theme robust --minify
+        working-directory: ~/tmp
