@@ -1,24 +1,28 @@
-name: TEST
+name: Build Test
 on: [push, pull_request]
 jobs:
   build:
-    name: Build Test
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Download hugoBasicExample
+        uses: actions/checkout@v2
+        with:
+          repository: gohugoio/hugoBasicExample
+          path: ~/tmp
+
+      - uses: actions/checkout@v2
+        with:
+          path: ~/tmp/themes/robust
+
+      - name: Setup hugo
+        working-directory: ~/tmp
         run: |
-          git clone -b master --single-branch --depth=1 https://github.com/gohugoio/hugoBasicExample.git ~/tmp
-      - name: Download hugo binary
-        rnn: |
           VERSION=$(curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
           wget "https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz" -O hugo.tar.gz
           tar xzf hugo.tar.gz hugo
           rm -rf hugo.tar.gz
-        working-directory: ~/tmp
-      - uses: actions/checkout@v2
-        with:
-          path: ~/tmp/themes/robust
+
       - name: Build
-        run: |
-          ./hugo --theme robust --minify
         working-directory: ~/tmp
+        run: ./hugo --theme robust --minify
