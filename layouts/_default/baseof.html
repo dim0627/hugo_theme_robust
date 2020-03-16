@@ -16,7 +16,14 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <style>
-{{ with resources.Get "styles.scss" | toCSS | minify }}{{ .Content | safeCSS }}{{ end }}
+{{ with resources.Get "styles.scss" | toCSS }}
+  {{ replace .Content `@charset "UTF-8";` "" | safeCSS }}
+{{ end }}
+{{ if .Site.Params.Author }}
+  {{ with resources.Get "author.scss" | toCSS }}
+    {{ replace .Content `@charset "UTF-8";` "" | safeCSS }}
+  {{ end }}
+{{ end }}
 
 .thumb {
   background-image: url("{{ "images/default.jpg" | absURL }}");

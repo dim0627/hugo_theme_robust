@@ -1,0 +1,56 @@
+.author {
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px rgba(63, 63, 68, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+
+  .author-thumb {
+    margin: 0 auto 1rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background-color: #eceff1;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .author-name {
+    margin-bottom: .5rem;
+    font-weight: 700;
+  }
+
+  .author-facts {
+    margin-bottom: 1rem;
+
+    li {
+      display: inline;
+
+      a {
+        display: inline-block;
+        background-color: #eceff1;
+        width: 1.75rem;
+        height: 1.75rem;
+        line-height: 1.75rem;
+        text-align: center;
+        color: #333;
+        font-size: .8rem;
+        border-radius: 2px;
+
+        &:hover {
+          color: #fff;
+          background-color: #333;
+        }
+      }
+    }
+  }
+
+  .author-description {
+    text-align: left;
+    font-size: .8rem;
+
+    p {
+      margin: .5rem 0;
+    }
+  }
+}
