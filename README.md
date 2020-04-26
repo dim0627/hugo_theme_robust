@@ -57,6 +57,8 @@ googlefonts = "https://fonts.googleapis.com/css?family=Lobster|Lato:400,700" # O
 fontfamily = "Lato,YuGothic,'Hiragino Kaku Gothic Pro',Meiryo,sans-serif" # Optional, Override body font family.
 logofontfamily = "Lobster, cursive" # Optional, Override logo font.
 
+enableHighlight = true # highlight.js option
+
 [params.author]
 thumbnail = "images/author.jpg"
 name = "John Doe"
