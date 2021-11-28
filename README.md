@@ -87,8 +87,8 @@ toc = true # Optional
 ## Image
 
 ```
-{{% img src="images/image.jpg" w="600" h="400" %}}
-{{% img src="images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+{{< img src="images/image.jpg" w="600" h="400" >}}
+{{< img src="images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 ```
 
 ![screenshot](https://raw.githubusercontent.com/dim0627/hugo_theme_robust/master/images/include-images.png)
