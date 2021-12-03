@@ -339,10 +339,19 @@ article.sn > .article-body em {
   color: #8bc34a;
 }
 
-article.sn > .article-body code,
-article.sn > .article-body pre {
-  font-family: Menlo, Consolas, monospace;
-  font-size: .7rem;
+article.sn > .article-body {
+  h2 code {
+    font-size: 1.1rem;
+  }
+  h1, h3, h4, h5 ,h6 {
+    code {
+      font-size: .9rem;
+    }
+  }
+  code, pre{
+    font-family: Menlo, Consolas, monospace;
+    font-size: .7rem;
+  }
 }
 
 article.sn > .article-body pre {
@@ -370,13 +379,17 @@ article.sn > .article-body pre > code {
   }
 }
 
-article.sn > .article-body p code {
-  background-color: #eceff1;
-  color: #333;
-  border-radius: 4px;
-  margin: 0 .25rem;
-  padding: .375rem;
-  white-space: nowrap;
+article.sn > .article-body {
+  p, h1, h2, h3, h4, h5 ,h6 {
+    code {
+      background-color: #eceff1;
+      color: #333;
+      border-radius: 4px;
+      margin: 0 .25rem;
+      padding: .375rem;
+      white-space: nowrap;
+    }
+  }
 }
 
 article.sn > .article-body blockquote {
