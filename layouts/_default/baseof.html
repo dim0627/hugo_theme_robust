@@ -44,15 +44,15 @@
 {{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}
 {{ partial "custom.css" . | safeCSS }}
     </style>
-{{ if and .Site.GoogleAnalytics (ne (getenv "HUGO_ENV") "DEV") }}
+{{ if and .Site.Config.Services.GoogleAnalytics.ID (ne (getenv "HUGO_ENV") "DEV") }}
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Config.Services.GoogleAnalytics.ID }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', '{{ .Site.GoogleAnalytics }}');
+  gtag('config', '{{ .Site.Config.Services.GoogleAnalytics.ID }}');
 </script>
 {{ end }}
   </head>
