@@ -48,9 +48,9 @@ theme = "hugo_theme_robust"
 
 [services]
   [services.disqus]
-    shortname = 'UA-XXXXXXXX-XX' # Optical
+    shortname = ''
   [services.googleAnalytics]
-    id = ''
+    id = 'UA-XXXXXXXX-XX' # Optical
 
 [params]
 description = "This is site description"
