@@ -46,8 +46,11 @@ baseurl = "https://example.com/"
 title = "SiteTitle"
 theme = "hugo_theme_robust"
 
-googleAnalytics = "UA-XXXXXXXX-XX" # Optional
-disqusShortname = "XYW"
+[services]
+  [services.disqus]
+    shortname = ''
+  [services.googleAnalytics]
+    id = 'UA-XXXXXXXX-XX' # Optical
 
 [params]
 description = "This is site description"

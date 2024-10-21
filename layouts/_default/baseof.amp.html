@@ -7,7 +7,7 @@
     {{ partial "meta.html" . }}
     {{ block "meta" . }}{{ end }}
 
-    {{ if and .Site.GoogleAnalytics (ne (getenv "HUGO_ENV") "DEV") }}
+    {{ if and .Site.Config.Services.GoogleAnalytics.ID (ne (getenv "HUGO_ENV") "DEV") }}
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <meta name="amp-google-client-id-api" content="googleanalytics">
     {{ end }}
@@ -45,14 +45,14 @@
   </head>
 
   <body>
-    {{ if and .Site.GoogleAnalytics (ne (getenv "HUGO_ENV") "DEV") }}
+    {{ if and .Site.Config.Services.GoogleAnalytics.ID (ne (getenv "HUGO_ENV") "DEV") }}
     <amp-analytics type="gtag" data-credentials="include">
       <script type="application/json">
       {
         "vars" : {
-          "gtag_id": "{{ .Site.GoogleAnalytics }}}",
+          "gtag_id": "{{ .Site.Config.Services.GoogleAnalytics.ID }}}",
           "config" : {
-            "{{ .Site.GoogleAnalytics }}}": { "groups": "default" }
+            "{{ .Site.Config.Services.GoogleAnalytics.ID }}}": { "groups": "default" }
           }
         }
       }
